@@ -548,3 +548,72 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
   .stage-head { gap: 0.8rem; }
   .stage-head h2 { font-size: 1.12rem; }
 }
+
+/* ===== صفحة المراجعة اللغوية ===== */
+.teaser-link { text-decoration: none; display: block; color: inherit; }
+.teaser-link:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.teaser-link h3 { margin-bottom: 0.25rem; }
+.check-card, .general-card {
+  background: #fff; border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+  padding: 1.5rem; box-shadow: var(--shadow-sm); margin-top: 1.1rem;
+}
+.check-card h3, .general-card h3 { margin-bottom: 0.8rem; }
+.check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.check-list label {
+  display: flex; align-items: center; gap: 0.7rem; cursor: pointer;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.7rem 0.9rem; font-weight: 700; font-size: 0.95rem; color: var(--brown-900);
+}
+.check-list input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--brown-700); flex-shrink: 0; }
+.review-stage {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+  margin-bottom: 0.9rem; box-shadow: var(--shadow-sm); overflow: hidden;
+}
+.review-stage:last-child { margin-bottom: 0; }
+.review-stage summary {
+  list-style: none; display: flex; align-items: flex-start; gap: 0.9rem;
+  padding: 1.1rem 1.25rem; cursor: pointer;
+}
+.review-stage summary::-webkit-details-marker { display: none; }
+.review-stage summary strong { display: block; font-size: 1.05rem; color: var(--brown-900); }
+.review-stage .stage-goal { display: block; color: var(--muted); font-size: 0.88rem; margin-top: 0.15rem; }
+.review-stage .lessons { padding: 0 1.25rem 1.25rem; }
+.notes-count { background: var(--bg-alt); border: 1px solid var(--border-strong); color: var(--brown-700); font-size: 0.78rem; font-weight: 800; padding: 0.08rem 0.65rem; border-radius: 999px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.note-form { display: grid; gap: 0.7rem; margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px dashed var(--border-strong); }
+.note-form[hidden] { display: none; }
+.note-form label { display: grid; gap: 0.3rem; font-weight: 800; font-size: 0.88rem; color: var(--brown-900); }
+.note-form select, .note-form textarea {
+  font-family: inherit; font-size: 0.95rem; color: var(--ink);
+  background: #fff; border: 1px solid var(--border-strong); border-radius: 10px;
+  padding: 0.6rem 0.8rem; width: 100%;
+}
+.note-form textarea { resize: vertical; min-height: 56px; line-height: 1.7; }
+.note-form select:focus, .note-form textarea:focus { outline: 3px solid var(--brown-300); outline-offset: 1px; border-color: var(--brown-500); }
+.form-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.general-card .note-form { border-top: 0; padding-top: 0; margin-top: 0.5rem; }
+.export-bar { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 0.8rem; }
+.note-card {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.15rem 1.25rem; margin-bottom: 0.8rem; box-shadow: var(--shadow-sm);
+}
+.note-head { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
+.note-where { font-size: 0.85rem; font-weight: 800; color: var(--brown-700); }
+.note-card > p { font-size: 0.94rem; color: var(--muted); margin-bottom: 0.4rem; }
+.note-card > p strong { color: var(--ink); }
+.note-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+.note-meta { font-size: 0.8rem; color: var(--muted); }
+.note-actions .link { background: none; border: 0; padding: 0; cursor: pointer; font-size: 0.88rem; }
+.link-danger { color: #a02c2c; font-weight: 800; text-decoration: none; }
+.link-danger:hover { text-decoration: underline; }
+.edit-form { margin-top: 0.8rem; }
+.empty-notes { text-align: center; color: var(--muted); background: #fff; border: 1px dashed var(--border-strong); border-radius: var(--radius); padding: 1.5rem; }
+/* دعم عرض النصوص التغرية مستقبلًا (لا محتوى تغري حاليًا) */
+.tigre-text {
+  direction: ltr; unicode-bidi: isolate;
+  font-family: "Noto Sans Ethiopic", "Abyssinica SIL", "Nyala", sans-serif;
+}
+@media (max-width: 560px) {
+  .check-card, .general-card { padding: 1.15rem; }
+  .review-stage summary { padding: 0.95rem 1rem; }
+  .review-stage .lessons { padding: 0 1rem 1rem; }
+}
