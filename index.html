@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>التغرية | تعلّم اللغة التغرية بالعربية خطوة بخطوة</title>
+  <meta name="description" content="موقع تعليمي عربي لتعلم اللغة التغرية من الأساسيات إلى المحادثة اليومية." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236B4226'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF6EE' font-family='sans-serif' font-weight='bold'%3E%D8%AA%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#home">تخطَّ إلى المحتوى</a>
+
+  <!-- 1. شريط التنقل -->
+  <header class="header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="التغرية - الرئيسية">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span class="logo-text">
+          <strong>التغرية</strong>
+          <small>للعربية إلى التغرية</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a href="#home" class="nav-link is-active">الرئيسية</a>
+        <a href="#curriculum" class="nav-link">تعلّم اللغة</a>
+        <a href="#dictionary" class="nav-link">القاموس</a>
+        <a href="#quizzes" class="nav-link">الاختبارات</a>
+        <a href="#about" class="nav-link">عن التطبيق</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#journey" class="btn btn-primary btn-sm">ابدأ التعلّم</a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="فتح القائمة">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="قائمة الهاتف">
+        <a href="#home">الرئيسية</a>
+        <a href="#curriculum">تعلّم اللغة</a>
+        <a href="#dictionary">القاموس</a>
+        <a href="#quizzes">الاختبارات</a>
+        <a href="#about">عن التطبيق</a>
+        <a href="#journey" class="btn btn-primary">ابدأ التعلّم</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. القسم الرئيسي -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span> منصة عربية لتعلّم التغرية — من الصفر إلى المحادثة</p>
+          <h1>اكتشف اللغة التغرية،<br />خطوة بخطوة</h1>
+          <p class="lead">موقع يساعد الناطقين بالعربية على تعلّم التغرية من الأساسيات إلى المحادثة اليومية، بمنهج متدرج ودروس قصيرة وتدريبات عملية.</p>
+          <div class="hero-cta">
+            <a href="#journey" class="btn btn-primary">ابدأ رحلتك</a>
+            <a href="#curriculum" class="btn btn-secondary">استكشف المنهج</a>
+          </div>
+          <ul class="hero-points">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              من الصفر دون معرفة سابقة
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              شرح عربي واضح لكل مرحلة
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              مسار منظم حتى المحادثة
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-label="مساحة بصرية تعريفية">
+          <div class="visual-card">
+            <div class="visual-pattern" aria-hidden="true"></div>
+            <div class="visual-head">
+              <span class="chip">بطاقة تعلّم</span>
+              <span class="chip chip-soft">مثال شكلي</span>
+            </div>
+            <div class="mock-card">
+              <div class="mock-line w-40"></div>
+              <div class="mock-line w-80"></div>
+              <div class="mock-audio">
+                <span class="play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+                <span class="waves" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <span class="mock-note">استمع إلى النطق</span>
+              </div>
+              <div class="mock-progress"><i style="width:55%"></i></div>
+              <p class="mock-caption">نموذج لشكل البطاقة — دون محتوى لغوي فعلي في هذه المرحلة.</p>
+            </div>
+            <div class="visual-foot">
+              <div class="mini-stat"><strong>6</strong><span>مراحل مقترحة</span></div>
+              <div class="mini-stat"><strong>5</strong><span>طرق للتدرّب</span></div>
+              <div class="mini-stat"><strong>1</strong><span>مسار واحد واضح</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. التعريف بالتطبيق -->
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">أين ستبدأ؟</p>
+          <h2>رحلتك في تعلّم التغرية</h2>
+          <p>ثلاث ركائز أساسية نبني عليها تجربة التعلّم، من أول كلمة حتى بناء الجملة واختبار مستواك.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/></svg>
+            </span>
+            <h3>تعلّم الكلمات والعبارات</h3>
+            <p>مفردات مختارة بعناية لمواقف الحياة اليومية، تُعرض في بطاقات قصيرة سهلة الحفظ والمراجعة.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </span>
+            <h3>افهم القواعد وابنِ الجمل</h3>
+            <p>شرح عربي مبسّط لتركيب الجملة خطوة بخطوة، يساعدك على الانتقال من الحفظ إلى التعبير.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </span>
+            <h3>تدرّب واختبر مستواك</h3>
+            <p>تدريبات قصيرة واختبارات مرحلية تكشف تقدمك وتوجهك إلى ما يحتاج إلى مراجعة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. مسار التعلم -->
+    <section class="section section-alt" id="curriculum">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">خارطة الطريق</p>
+          <h2>مسار التعلّم المقترح</h2>
+          <p>مراحل أولية للعرض فقط، وليست منهجاً معتمداً بعد. لن تجد داخلها محتوى لغوياً في هذه المرحلة.</p>
+          <p class="notice">عرض تمهيدي — سيُبنى المحتوى الفعلي في مراحل لاحقة.</p>
+        </div>
+        <ol class="path">
+          <li><span class="step">1</span><div><h3>البداية والتعرّف إلى اللغة</h3><p>لمحة عامة عن التغرية وأهداف المسار وكيفية استخدامه.</p></div></li>
+          <li><span class="step">2</span><div><h3>الحروف والأصوات والكتابة</h3><p>التعرّف إلى نظام الكتابة والنطق والتمييز بين الأصوات.</p></div></li>
+          <li><span class="step">3</span><div><h3>المفردات الأساسية</h3><p>كلمات وعبارات يومية شائعة ضمن سياقات واضحة.</p></div></li>
+          <li><span class="step">4</span><div><h3>تكوين الجمل</h3><p>تركيب جمل بسيطة ثم تطويرها تدريجياً بثقة.</p></div></li>
+          <li><span class="step">5</span><div><h3>المحادثات اليومية</h3><p>حوارات قصيرة لمواقف حقيقية: التعارف والسؤال والطلب.</p></div></li>
+          <li><span class="step">6</span><div><h3>المراجعة والاختبارات</h3><p>تثبيت ما تعلمته وقياس مستواك قبل الانتقال للمستوى التالي.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. تجربة التعلم -->
+    <section class="section" id="method">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">كيف ستتعلّم؟</p>
+          <h2>تجربة تعلّم عملية وبسيطة</h2>
+          <p>نماذج شكلية توضح شكل الدروس مستقبلاً — دون كلمات تغرية غير موثقة.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card method">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+            <h3>بطاقات المفردات</h3>
+            <p>بطاقة لكل معنى مع مثال للاستخدام ومراجعة ذكية.</p>
+            <div class="skeleton" aria-hidden="true"><i class="w-70"></i><i class="w-50"></i></div>
+          </article>
+          <article class="card method">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></span>
+            <h3>الاستماع إلى النطق</h3>
+            <p>تسجيلات صوتية بجودة واضحة مع إمكانية الإعادة والتكرار.</p>
+            <div class="skeleton audio-skel" aria-hidden="true"><span class="play-sm"></span><i class="w-60"></i></div>
+          </article>
+          <article class="card method">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+            <h3>أمثلة الاستخدام</h3>
+            <p>كل قاعدة تُعرض داخل جملة قصيرة من الحياة اليومية.</p>
+            <div class="skeleton" aria-hidden="true"><i class="w-80"></i><i class="w-45"></i></div>
+          </article>
+          <article class="card method">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+            <h3>التدريبات القصيرة</h3>
+            <p>أسئلة سريعة بعد كل درس لتثبيت المعلومة مباشرة.</p>
+            <div class="skeleton" aria-hidden="true"><i class="w-55"></i><i class="w-65"></i></div>
+          </article>
+          <article class="card method">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.5 15a5 5 0 1 0 .9-7.4L1 10"/></svg></span>
+            <h3>مراجعة ما تعلّمته</h3>
+            <p>جلسات مراجعة دورية تعيد عرض ما أوشكت على نسيانه.</p>
+            <div class="mock-progress"><i style="width:40%"></i></div>
+          </article>
+          <article class="card method highlight">
+            <h3>صُمم للهاتف أولاً</h3>
+            <p>درس واحد قصير في كل مرة — مناسب لخمس دقائق يومياً من هاتفك أو حاسوبك.</p>
+            <a href="#features" class="link">اطّلع على المميزات ←</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. المميزات -->
+    <section class="section section-alt" id="features">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">لماذا التغرية؟</p>
+          <h2>مميزات الموقع</h2>
+          <p>ما هو متاح الآن للعرض، وما هو مخطط له مستقبلاً — دون ادعاء عمل خصائص لم تُنفّذ.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+            <h3>مناسب للناطقين بالعربية</h3><p>شرح عربي كامل مع مقارنات تساعد على فهم الفروق بسرعة.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+            <h3>تعلّم متدرج من الصفر</h3><p>مسار واحد واضح يبدأ بالأساسيات ويتقدم بك بثبات.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+            <h3>دروس قصيرة ومنظمة</h3><p>محتوى مركز يناسب وقتك اليومي دون إرهاق.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 13l2 2 4-4"/></svg></span>
+            <h3>اختبارات وتدريبات</h3><p>قسم مخصص لقياس الفهم — <span class="badge">قيد التجهيز</span></p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+            <h3>متابعة التقدم</h3><p>حفظ موضعك ونتائجك لمواصلة التعلّم — <span class="badge">مستقبلاً</span></p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+            <h3>قابل للتثبيت كتطبيق</h3><p>الهدف تحويل الموقع إلى تطبيق PWA يُثبّت على الهاتف — <span class="badge">مستقبلاً</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- teaser: القاموس والاختبارات -->
+    <section class="section" id="dictionary">
+      <div class="container grid-2">
+        <article class="teaser">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+          <p class="kicker">القاموس</p>
+          <h2>قاموس عربي — تغري</h2>
+          <p>قسم تعريفي تمهيدي: سيتيح لاحقاً البحث عن المفردات وتصفحها حسب الموضوع والمستوى.</p>
+          <p class="teaser-note"><span class="badge">سيتوفر في مرحلة لاحقة</span> لا توجد وظيفة بحث عاملة حالياً.</p>
+          <span class="btn btn-ghost" aria-disabled="true">استعرض القاموس (قريباً)</span>
+        </article>
+        <article class="teaser" id="quizzes">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+          <p class="kicker">الاختبارات</p>
+          <h2>اختبر مستواك أولاً بأول</h2>
+          <p>قسم تعريفي تمهيدي: اختبارات قصيرة بعد كل مرحلة لقياس الحفظ والفهم والنطق.</p>
+          <p class="teaser-note"><span class="badge">سيتوفر في مرحلة لاحقة</span> لا توجد اختبارات عاملة حالياً.</p>
+          <span class="btn btn-ghost" aria-disabled="true">ابدأ اختباراً (قريباً)</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7. عن اللغة -->
+    <section class="section section-dark" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="kicker kicker-light">تعرّف عليها</p>
+          <h2>عن اللغة التغرية</h2>
+          <p>التغرية لغة سامية تُستخدم في إريتريا ومناطق من شرق السودان. وهي لغة مستقلة تختلف عن التغرينية، ولكل منهما ناطقوها وخصائصها.</p>
+          <p class="muted-light">يلتزم هذا الموقع بعدم نشر معلومات تاريخية أو لغوية تفصيلية غير موثقة، وسيُبنى المحتوى اللغوي لاحقاً على مصادر معتمدة.</p>
+        </div>
+        <ul class="about-list">
+          <li><strong>أين تُستخدم؟</strong><span>إريتريا ومناطق من شرق السودان.</span></li>
+          <li><strong>لمن هذا الموقع؟</strong><span>للناطقين بالعربية من المبتدئين تماماً.</span></li>
+          <li><strong>تنبيه مهم</strong><span>التغرية تختلف عن التغرينية — فلا تخلط بينهما.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. الأسئلة الشائعة -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="kicker">عندك سؤال؟</p>
+          <h2>الأسئلة الشائعة</h2>
+          <p>إجابات أولية عن طريقة استخدام الموقع — دون وعد بخصائص لم تُنفّذ.</p>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>هل أحتاج إلى معرفة سابقة باللغة؟</summary>
+            <p>لا. صُمم المسار ليبدأ من الصفر، وستجد شرحاً عربياً لكل خطوة قبل الانتقال إلى ما بعدها.</p>
+          </details>
+          <details>
+            <summary>هل يناسب الموقع المبتدئين؟</summary>
+            <p>نعم. الدروس قصيرة والمراحل مرتبة من الأسهل إلى الأصعب، مع مراجعة مستمرة لما تعلمته.</p>
+          </details>
+          <details>
+            <summary>كيف سأتعلّم النطق؟</summary>
+            <p>من المخطط توفير تسجيلات صوتية لكل بطاقة ومثال، مع إمكانية الاستماع المتكرر. هذه الخاصية ستُفعّل مع إطلاق الدروس.</p>
+          </details>
+          <details>
+            <summary>هل يمكنني مراجعة ما تعلّمته؟</summary>
+            <p>نعم. ستتضمن كل مرحلة قسماً للمراجعة، وستُحفظ نتائج اختباراتك مستقبلاً لمتابعة تقدمك.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. الختام -->
+    <section class="cta" id="start">
+      <div class="container cta-box">
+        <p class="cta-kicker">جاهز تبدأ؟</p>
+        <h2>ابدأ رحلتك مع التغرية اليوم</h2>
+        <p>تعرّف على المسار وتدرّب خطوة بخطوة — بالعربية، ومن هاتفك.</p>
+        <div class="hero-cta center">
+          <a href="#journey" class="btn btn-primary btn-light">ابدأ التعلّم الآن</a>
+          <a href="#curriculum" class="btn btn-outline-light">استكشف المنهج</a>
+        </div>
+        <p class="cta-note">نسخة أولية للواجهة — المحتوى التعليمي الكامل قيد التطوير.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo logo-footer" href="#home"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><strong>التغرية</strong></a>
+        <p>موقع عربي لتعليم اللغة التغرية من الأساسيات إلى المحادثة — واجهة أولية قابلة للتطوير إلى تطبيق متكامل.</p>
+      </div>
+      <nav aria-label="روابط الموقع">
+        <h3>أقسام الموقع</h3>
+        <a href="#home">الرئيسية</a>
+        <a href="#curriculum">المنهج</a>
+        <a href="#dictionary">القاموس</a>
+        <a href="#quizzes">الاختبارات</a>
+        <a href="#about">عن التطبيق</a>
+      </nav>
+      <nav aria-label="مسار التعلم">
+        <h3>مسار التعلّم</h3>
+        <a href="#journey">رحلتك في التعلّم</a>
+        <a href="#method">تجربة التعلّم</a>
+        <a href="#features">المميزات</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+        <a href="#start">ابدأ الآن</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> التغرية — جميع الحقوق محفوظة.</p>
+      <p>صُنع بعناية للناطقين بالعربية.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
