@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>المراجعة اللغوية | التغرية</title>
-  <meta name="description" content="صفحة مراجعة لغوية للمختصين: فحص تصميم منصة التغرية ومحتواها وتسجيل الملاحظات محليًا." />
+  <title>مساحة المراجعة اللغوية | التغرية</title>
+  <meta name="description" content="مساحة مستقلة للمختصين لمراجعة منصة التغرية: الدروس والواجهة وتسجيل الملاحظات محليًا." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -35,7 +35,7 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#review-content" class="btn btn-primary btn-sm">ابدأ المراجعة</a>
+        <a href="#start" class="btn btn-primary btn-sm">ابدأ المراجعة</a>
         <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="فتح القائمة">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
         </button>
@@ -49,102 +49,63 @@
         <a href="index.html#dictionary">القاموس</a>
         <a href="index.html#quizzes">الاختبارات</a>
         <a href="index.html#about">عن التطبيق</a>
-        <a href="#review-content" class="btn btn-primary">ابدأ المراجعة</a>
+        <a href="#start" class="btn btn-primary">ابدأ المراجعة</a>
       </nav>
     </div>
   </header>
 
+  <nav class="review-subnav" aria-label="التنقل في مساحة المراجعة">
+    <div class="container review-subnav-inner">
+      <a href="review.html" aria-current="page">المساحة الرئيسية</a>
+      <a href="review-lessons.html">الدروس</a>
+      <a href="review-interface.html">الواجهة</a>
+      <a href="review-notes.html">ملاحظاتي <span class="count-badge" data-notes-badge hidden></span></a>
+    </div>
+  </nav>
+
   <main id="content">
-    <!-- مقدمة -->
     <section class="page-hero" id="page-hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="مسار التنقل">
           <a href="index.html">الرئيسية</a>
           <span aria-hidden="true">/</span>
-          <span aria-current="page">المراجعة اللغوية</span>
+          <span aria-current="page">مساحة المراجعة</span>
         </nav>
         <p class="eyebrow"><span class="dot" aria-hidden="true"></span> أداة مشروع للمختصين — ليست درسًا للمتعلمين</p>
-        <h1>صفحة المراجعة اللغوية</h1>
-        <p class="lead">هذه المنصة قيد التطوير، ونحتاج عينك كمتحدث أصلي للتغرية. افتح الصفحات وراجع العناوين والأهداف وأي معلومات لغوية، وسجّل الخطأ مع الصياغة الصحيحة وسبب التصحيح.</p>
-        <p class="notice">ملاحظاتك تُحفظ في متصفحك على هذا الجهاز فقط، ولا تصل إلينا تلقائيًا — صدّرها ملفًا وأرسله إلينا كما هو موضح أدناه.</p>
-        <p class="muted-note">النصوص التغرية — عند إضافتها مستقبلًا — ستظهر بخط داعم واتجاه مناسب تلقائيًا.</p>
+        <h1>مساحة المراجعة اللغوية</h1>
+        <p class="lead">أهلًا بك أيها المتحدث الأصلي. دورك هنا: تصفح المنصة كما سيراها المتعلم، وراجع العناوين والأهداف وأي معلومات لغوية، وسجّل الخطأ مع الصياغة الصحيحة وسبب التصحيح — ملاحظة واحدة لكل مسألة.</p>
+        <p class="notice">ملاحظاتك تُحفظ في متصفحك على هذا الجهاز فقط، ولا تصل إلينا تلقائيًا — ستجد زر التصدير في شاشة ملاحظاتك.</p>
       </div>
     </section>
 
-    <!-- مراجعة الواجهة -->
-    <section class="section" id="review-interface">
+    <section class="section" id="start">
       <div class="container">
         <div class="section-head">
-          <p class="kicker">أولًا</p>
-          <h2>مراجعة الواجهة</h2>
-          <p>افتح الصفحتين ثم ضع علامة على ما راجعته، وسجّل ملاحظات التصميم في النموذج العام أدناه.</p>
+          <p class="kicker">من أين تبدأ؟</p>
+          <h2>اختر مسارك</h2>
+          <p>ثلاث شاشات مستقلة — تنقّل بينها بحرية من الشريط أعلى الصفحة.</p>
         </div>
-        <div class="grid-2">
-          <a class="teaser teaser-link" href="index.html" target="_blank" rel="noopener">
-            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-            <h3>الصفحة الرئيسية ←</h3>
-            <p>تُفتح في نافذة جديدة لتقارن أثناء المراجعة.</p>
-          </a>
-          <a class="teaser teaser-link" href="curriculum.html" target="_blank" rel="noopener">
+        <div class="grid-3" id="hubStats">
+          <a class="hub-card" href="review-lessons.html">
             <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
-            <h3>صفحة المنهج ←</h3>
-            <p>تُفتح في نافذة جديدة لتقارن أثناء المراجعة.</p>
+            <h3>ابدأ المراجعة ←</h3>
+            <p>استعرض المراحل الست، واختر الدرس لتراجعه على حدة.</p>
+          </a>
+          <a class="hub-card" href="review-interface.html">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
+            <h3>مراجعة الواجهة ←</h3>
+            <p>قائمة تحقق من 5 بنود وملاحظات التصميم العامة.</p>
+          </a>
+          <a class="hub-card" href="review-notes.html">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+            <h3>ملاحظاتي والتصدير ←</h3>
+            <p>راجع ما سجلته وعدّله، ثم صدّره ملفًا وأرسله إلينا.</p>
           </a>
         </div>
-        <div class="check-card">
-          <h3>قائمة التحقق من الواجهة</h3>
-          <ul class="check-list">
-            <li><label><input type="checkbox" /> وضوح العناوين الرئيسية في الصفحة الرئيسية</label></li>
-            <li><label><input type="checkbox" /> ملاءمة وصف المنصة وما تعد به الزائر</label></li>
-            <li><label><input type="checkbox" /> صحة أي معلومات لغوية تظهر للزائر (التغرية مقابل التغرينية)</label></li>
-            <li><label><input type="checkbox" /> وضوح حالات الدروس (متاح / قيد الإعداد) وعدم التضليل</label></li>
-            <li><label><input type="checkbox" /> تجربة الهاتف: القراءة والتنقل وحجم الخطوط</label></li>
-          </ul>
-          <p class="mock-caption">تُحفظ علاماتك في متصفحك فقط، مع ملاحظاتك.</p>
+        <div class="hub-numbers">
+          <div class="hub-number"><strong id="statNotes">0</strong><span>ملاحظات مسجلة</span></div>
+          <div class="hub-number"><strong id="statLessons">0</strong><span>دروس عليها ملاحظات (من 18)</span></div>
         </div>
-      </div>
-    </section>
-
-    <!-- مراجعة المحتوى -->
-    <section class="section section-alt" id="review-content">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">ثانيًا</p>
-          <h2>مراجعة المراحل والدروس</h2>
-          <p>المراحل الست والدروس الـ18 كما هي في المنصة. <strong>بصدق تام: المحتوى اللغوي للدروس لم يُكتب أو يُعتمد بعد</strong> — راجع الآن العناوين والأهداف، وجهّز ملاحظاتك للمرحلة التالية.</p>
-        </div>
-        <div id="reviewStages"></div>
-
-        <div class="general-card">
-          <h3>نموذج الملاحظات العامة</h3>
-          <p class="muted-note">لملاحظة غير مرتبطة بدرس محدد (تصميم، وصف المنصة، اقتراح عام).</p>
-          <form class="note-form" id="generalForm">
-            <label>الموضوع<select name="topic"><option>واجهة وتصميم</option><option>محتوى تعليمي عام</option><option>أخرى</option></select></label>
-            <label>النص أو العنصر محل الملاحظة<textarea name="target" rows="2" required placeholder="حدد بدقة أين المشكلة"></textarea></label>
-            <label>التصحيح أو الاقتراح<textarea name="correction" rows="2" required placeholder="اكتب الصياغة الصحيحة أو اقتراحك"></textarea></label>
-            <label>سبب التعديل أو الشرح<textarea name="reason" rows="2" placeholder="لماذا هذا التصحيح أصح؟ (اختياري)"></textarea></label>
-            <label>درجة الثقة<select name="confidence"><option>متأكد</option><option>يحتاج إلى تحقق</option></select></label>
-            <div class="form-actions"><button type="submit" class="btn btn-primary">حفظ الملاحظة العامة</button></div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- ملاحظاتي والتصدير -->
-    <section class="section" id="notes">
-      <div class="container narrow">
-        <div class="section-head">
-          <p class="kicker">ثالثًا</p>
-          <h2>ملاحظاتك المحفوظة</h2>
-          <p id="notesTotal">لا توجد ملاحظات بعد</p>
-        </div>
-        <div class="export-bar">
-          <button type="button" class="btn btn-primary btn-sm" id="exportJson">تصدير JSON</button>
-          <button type="button" class="btn btn-secondary btn-sm" id="exportMd">تصدير تقرير مقروء</button>
-          <button type="button" class="btn btn-ghost btn-sm" id="clearNotes">مسح الكل</button>
-        </div>
-        <p class="notice">تُحفظ الملاحظات محليًا في هذا المتصفح فقط. صدّر الملف (JSON أو التقرير) وأرسله إلى صاحب المشروع — لا يوجد إرسال تلقائي.</p>
-        <div id="notesList"></div>
       </div>
     </section>
 
@@ -155,7 +116,7 @@
         <p>لا تنسَ تصدير ملاحظاتك وإرسالها قبل المغادرة.</p>
         <div class="hero-cta center">
           <a href="index.html" class="btn btn-primary btn-light">العودة إلى الرئيسية</a>
-          <a href="curriculum.html" class="btn btn-outline-light">صفحة المنهج</a>
+          <a href="review-notes.html" class="btn btn-outline-light">تصدير ملاحظاتك</a>
         </div>
       </div>
     </section>
@@ -165,7 +126,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a class="logo logo-footer" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><strong>التغرية</strong></a>
-        <p>صفحة المراجعة اللغوية أداة للمختصين ضمن المشروع، وليست جزءًا من تجربة المتعلم.</p>
+        <p>مساحة المراجعة اللغوية أداة للمختصين ضمن المشروع، وليست جزءًا من تجربة المتعلم.</p>
       </div>
       <nav aria-label="روابط الموقع">
         <h3>أقسام الموقع</h3>
@@ -175,12 +136,12 @@
         <a href="index.html#quizzes">الاختبارات</a>
         <a href="index.html#about">عن التطبيق</a>
       </nav>
-      <nav aria-label="مسار التعلم">
-        <h3>المراجعة</h3>
-        <a href="#review-interface">مراجعة الواجهة</a>
-        <a href="#review-content">مراجعة الدروس</a>
-        <a href="#notes">ملاحظاتك والتصدير</a>
-        <a href="index.html">ابدأ الآن</a>
+      <nav aria-label="مساحة المراجعة">
+        <h3>مساحة المراجعة</h3>
+        <a href="review.html">المساحة الرئيسية</a>
+        <a href="review-lessons.html">مراجعة الدروس</a>
+        <a href="review-interface.html">مراجعة الواجهة</a>
+        <a href="review-notes.html">ملاحظاتك والتصدير</a>
       </nav>
     </div>
     <div class="container footer-bottom">

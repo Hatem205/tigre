@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ملاحظاتي والتصدير | مساحة المراجعة</title>
+  <meta name="description" content="راجع ملاحظاتك اللغوية وعدّلها واحذفها وصدّرها ملفًا لإرساله إلى صاحب المشروع." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236B4226'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF6EE' font-family='sans-serif' font-weight='bold'%3E%D8%AA%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#content">تخطَّ إلى المحتوى</a>
+
+  <header class="header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="التغرية - الرئيسية">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span class="logo-text">
+          <strong>التغرية</strong>
+          <small>للعربية إلى التغرية</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="curriculum.html" class="nav-link">تعلّم اللغة</a>
+        <a href="index.html#dictionary" class="nav-link">القاموس</a>
+        <a href="index.html#quizzes" class="nav-link">الاختبارات</a>
+        <a href="index.html#about" class="nav-link">عن التطبيق</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="review.html" class="btn btn-primary btn-sm">مساحة المراجعة</a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="فتح القائمة">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="قائمة الهاتف">
+        <a href="index.html">الرئيسية</a>
+        <a href="curriculum.html">تعلّم اللغة</a>
+        <a href="index.html#dictionary">القاموس</a>
+        <a href="index.html#quizzes">الاختبارات</a>
+        <a href="index.html#about">عن التطبيق</a>
+        <a href="review.html" class="btn btn-primary">مساحة المراجعة</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="review-subnav" aria-label="التنقل في مساحة المراجعة">
+    <div class="container review-subnav-inner">
+      <a href="review.html">المساحة الرئيسية</a>
+      <a href="review-lessons.html">الدروس</a>
+      <a href="review-interface.html">الواجهة</a>
+      <a href="review-notes.html" aria-current="page">ملاحظاتي <span class="count-badge" data-notes-badge hidden></span></a>
+    </div>
+  </nav>
+
+  <main id="content">
+    <section class="section">
+      <div class="container narrow">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href="review.html">مساحة المراجعة</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">ملاحظاتي والتصدير</span>
+        </nav>
+        <div class="section-head">
+          <p class="kicker">شاشة مستقلة</p>
+          <h2>إدارة ملاحظاتك</h2>
+          <p id="notesTotal">لا توجد ملاحظات بعد</p>
+        </div>
+        <div class="export-bar">
+          <button type="button" class="btn btn-primary btn-sm" id="exportJson">تصدير JSON</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="exportMd">تصدير تقرير مقروء</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="clearNotes">مسح الكل</button>
+        </div>
+        <p class="notice">تُحفظ الملاحظات محليًا في هذا المتصفح فقط. صدّر الملف (JSON أو التقرير) وأرسله إلى صاحب المشروع — لا يوجد إرسال تلقائي.</p>
+        <div id="notesList"></div>
+        <div class="hub-back">
+          <a class="btn btn-secondary" href="review-lessons.html">مواصلة مراجعة الدروس</a>
+          <a class="link" href="review.html">العودة إلى مساحة المراجعة</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo logo-footer" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><strong>التغرية</strong></a>
+        <p>مساحة المراجعة اللغوية أداة للمختصين ضمن المشروع، وليست جزءًا من تجربة المتعلم.</p>
+      </div>
+      <nav aria-label="روابط الموقع">
+        <h3>أقسام الموقع</h3>
+        <a href="index.html">الرئيسية</a>
+        <a href="curriculum.html">المنهج</a>
+        <a href="index.html#dictionary">القاموس</a>
+        <a href="index.html#quizzes">الاختبارات</a>
+        <a href="index.html#about">عن التطبيق</a>
+      </nav>
+      <nav aria-label="مساحة المراجعة">
+        <h3>مساحة المراجعة</h3>
+        <a href="review.html">المساحة الرئيسية</a>
+        <a href="review-lessons.html">مراجعة الدروس</a>
+        <a href="review-interface.html">مراجعة الواجهة</a>
+        <a href="review-notes.html">ملاحظاتك والتصدير</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> التغرية — جميع الحقوق محفوظة.</p>
+      <p>صُنع بعناية للناطقين بالعربية.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="curriculum.js"></script>
+  <script src="review.js"></script>
+</body>
+</html>

@@ -346,3 +346,323 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+
+/* =====================================================================
+ * مساحة المراجعة متعددة الشاشات (ملحق — لا يحذف أي وظيفة سابقة أعلاه).
+ * - نفس مفاتيح localStorage تمامًا: الملاحظات وقائمة التحقق متوافقة.
+ * - كل كتلة تعمل فقط عند وجود عناصرها ( Guards ) فلا تتعارض مع الصفحات الأخرى.
+ * ===================================================================== */
+(function () {
+  "use strict";
+
+  var NOTES_KEY = "tigre-review-notes-v1";
+  var KINDS = ["خطأ لغوي", "كتابة وإملاء", "ترجمة", "نطق", "معلومة غير دقيقة", "اقتراح تعليمي"];
+  var CONFIDENCE = ["متأكد", "يحتاج إلى تحقق"];
+  var counter = 0;
+  var lessonEditingId = null;
+  var currentLessonId = null;
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function loadNotes() {
+    try {
+      var raw = localStorage.getItem(NOTES_KEY);
+      if (!raw) return [];
+      var arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) { return []; }
+  }
+  function storeNotes(notes) {
+    try { localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); return true; }
+    catch (e) { return false; }
+  }
+  function fmtDate(iso) {
+    try { return new Date(iso).toLocaleString("ar", { dateStyle: "medium", timeStyle: "short" }); }
+    catch (e) { return ""; }
+  }
+  function findLesson(lid) {
+    if (!window.CURRICULUM) return null;
+    for (var i = 0; i < window.CURRICULUM.length; i++) {
+      for (var j = 0; j < window.CURRICULUM[i].lessons.length; j++) {
+        if ("lesson-" + (i + 1) + "-" + (j + 1) === lid) {
+          return { stage: window.CURRICULUM[i], si: i, lesson: window.CURRICULUM[i].lessons[j], li: j, code: (i + 1) + "." + (j + 1) };
+        }
+      }
+    }
+    return null;
+  }
+  function lessonNotes(notes, lid) {
+    return notes.filter(function (n) { return n.lessonId === lid; });
+  }
+
+  // ---------- شارة عدد الملاحظات في التنقل الفرعي ----------
+  function paintBadge() {
+    var n = loadNotes().length;
+    document.querySelectorAll("[data-notes-badge]").forEach(function (el) {
+      el.textContent = n ? String(n) : "";
+      el.hidden = !n;
+    });
+  }
+
+  // ---------- المركز الرئيسي: إحصاءات ----------
+  function renderHub() {
+    var host = document.getElementById("hubStats");
+    if (!host) return;
+    var notes = loadNotes();
+    var lessons = {};
+    notes.forEach(function (n) { if (n.scope !== "general" && n.lessonId) lessons[n.lessonId] = true; });
+    var totalEl = document.getElementById("statNotes");
+    var lessonsEl = document.getElementById("statLessons");
+    if (totalEl) totalEl.textContent = String(notes.length);
+    if (lessonsEl) lessonsEl.textContent = String(Object.keys(lessons).length);
+  }
+
+  // ---------- متصفح الدروس (review-lessons.html) ----------
+  function stageNotesCount(notes, si) {
+    var prefix = "lesson-" + (si + 1) + "-";
+    return notes.filter(function (n) { return (n.lessonId || "").indexOf(prefix) === 0; }).length;
+  }
+
+  function showView(id) {
+    ["viewStages", "viewStage", "viewLesson"].forEach(function (v) {
+      var el = document.getElementById(v);
+      if (el) el.hidden = (v !== id);
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function renderStagesHome() {
+    var host = document.getElementById("stageCards");
+    if (!host || !window.CURRICULUM) return;
+    var notes = loadNotes();
+    host.innerHTML = window.CURRICULUM.map(function (stage, i) {
+      var c = stageNotesCount(notes, i);
+      return (
+        '<a class="stage-card" href="#stage-' + (i + 1) + '">' +
+          '<span class="step" aria-hidden="true">' + (i + 1) + "</span>" +
+          "<span class=\"stage-card-text\"><strong>" + esc(stage.title) + "</strong>" +
+          "<small>" + stage.lessons.length + " دروس" + (c ? " • " + c + " ملاحظات" : "") + "</small></span>" +
+          '<span class="go" aria-hidden="true">←</span>' +
+        "</a>"
+      );
+    }).join("");
+  }
+
+  function renderStageView(si) {
+    var host = document.getElementById("stageLessonRows");
+    var title = document.getElementById("stageViewTitle");
+    var goal = document.getElementById("stageViewGoal");
+    if (!host || !window.CURRICULUM || !window.CURRICULUM[si]) return false;
+    var stage = window.CURRICULUM[si];
+    var notes = loadNotes();
+    if (title) title.textContent = "المرحلة " + (si + 1) + ": " + stage.title;
+    if (goal) goal.textContent = stage.goal;
+    host.innerHTML = stage.lessons.map(function (lesson, j) {
+      var lid = "lesson-" + (si + 1) + "-" + (j + 1);
+      var c = lessonNotes(notes, lid).length;
+      return (
+        '<a class="lesson-row" href="#lesson-' + (si + 1) + "-" + (j + 1) + '">' +
+          "<span class=\"lesson-row-text\"><strong>" + esc(lesson.title) + "</strong>" +
+          "<small>" + esc(lesson.goal) + "</small></span>" +
+          '<span class="lesson-row-meta"><span class="badge badge-pending">قيد الإعداد</span>' +
+          (c ? '<span class="notes-count">' + c + " ملاحظات</span>" : "") +
+          '<span class="go" aria-hidden="true">←</span></span>' +
+        "</a>"
+      );
+    }).join("");
+    return true;
+  }
+
+  function contentBlock(lid) {
+    var data = (window.LESSON_CONTENT && window.LESSON_CONTENT[lid]) || null;
+    var parts = [];
+    if (data) {
+      if (data.bodyAr) parts.push("<h3>الشرح التوضيحي</h3><p>" + esc(data.bodyAr) + "</p>");
+      if (data.examples && data.examples.length) {
+        parts.push("<h3>الأمثلة المعتمدة (" + data.examples.length + ")</h3>" + data.examples.map(function (ex) {
+          return '<div class="example-row"><p class="tigre-text" dir="ltr">' + esc(ex.tigre || "") + "</p>" +
+            "<p>" + esc(ex.arabic || "") + (ex.note ? " <small>(" + esc(ex.note) + ")</small>" : "") + "</p></div>";
+        }).join(""));
+      }
+      if (data.audio) parts.push('<h3>التسجيل الصوتي</h3><audio controls src="' + esc(data.audio) + '">متصفحك لا يدعم تشغيل الصوت.</audio>');
+      if (data.sources && data.sources.length) parts.push('<p class="mock-caption">المصادر الموثقة: ' + data.sources.length + "</p>");
+    }
+    if (!parts.length) {
+      return '<div class="content-empty"><h3>لا يوجد محتوى لغوي بعد</h3>' +
+        "<p>لم يُكتب محتوى هذا الدرس أو يُعتمد بعد — ولهذا تظهر حالته «قيد الإعداد». " +
+        "إن كنت ترى ما ينبغي إضافته أو مراجعته هنا (موضوع، مفردات، أمثلة، نطق)، سجّله في نموذج الملاحظة أدناه.</p></div>";
+    }
+    return '<div class="content-real">' + parts.join("") + "</div>";
+  }
+
+  function noteCardHtml(n) {
+    var editor = (lessonEditingId === n.id)
+      ? '<form class="note-form edit-form" data-edit="' + n.id + '">' +
+        '<label>نوع الملاحظة<select name="kind">' + KINDS.map(function (k) { return "<option" + (k === n.kind ? " selected" : "") + ">" + k + "</option>"; }).join("") + "</select></label>" +
+        '<label>النص أو العنصر محل الملاحظة<textarea name="target" rows="2" required>' + esc(n.target) + "</textarea></label>" +
+        '<label>التصحيح أو الاقتراح<textarea name="correction" rows="2" required>' + esc(n.correction) + "</textarea></label>" +
+        '<label>سبب التعديل أو الشرح<textarea name="reason" rows="2">' + esc(n.reason) + "</textarea></label>" +
+        '<label>درجة الثقة<select name="confidence">' + CONFIDENCE.map(function (c) { return "<option" + (c === n.confidence ? " selected" : "") + ">" + c + "</option>"; }).join("") + "</select></label>" +
+        '<div class="form-actions"><button type="submit" class="btn btn-primary btn-sm">حفظ التعديل</button>' +
+        '<button type="button" class="btn btn-secondary btn-sm cancel-edit">إلغاء</button></div></form>'
+      : "";
+    return (
+      '<article class="note-card" data-note="' + n.id + '">' +
+        '<div class="note-head"><span class="badge ' + (n.confidence === "متأكد" ? "badge-available" : "badge-pending") + '">' + esc(n.kind) + "</span></div>" +
+        "<p><strong>محل الملاحظة:</strong> " + esc(n.target) + "</p>" +
+        "<p><strong>التصحيح/الاقتراح:</strong> " + esc(n.correction) + "</p>" +
+        (n.reason ? "<p><strong>السبب:</strong> " + esc(n.reason) + "</p>" : "") +
+        '<div class="note-foot"><span class="note-meta">' + esc(n.confidence) + " • " + esc(fmtDate(n.updatedAt)) + "</span>" +
+        '<span class="note-actions"><button type="button" class="link edit-note">تعديل</button> • ' +
+        '<button type="button" class="link link-danger delete-note">حذف</button></span></div>' +
+        editor +
+      "</article>"
+    );
+  }
+
+  function renderLessonNotes() {
+    var host = document.getElementById("lessonNotesList");
+    var count = document.getElementById("lessonNotesCount");
+    if (!host || !currentLessonId) return;
+    var list = lessonNotes(loadNotes(), currentLessonId)
+      .sort(function (a, b) { return (b.updatedAt || "").localeCompare(a.updatedAt || ""); });
+    if (count) count.textContent = list.length ? ("ملاحظات هذا الدرس: " + list.length) : "لا ملاحظات على هذا الدرس بعد";
+    host.innerHTML = list.length ? list.map(noteCardHtml).join("")
+      : '<p class="empty-notes">لا ملاحظات بعد — كن أول من يراجع هذا الدرس.</p>';
+  }
+
+  function renderLessonView(lid) {
+    var found = findLesson(lid);
+    if (!found) return false;
+    currentLessonId = lid;
+    lessonEditingId = null;
+    var t = document.getElementById("lessonViewTitle");
+    var g = document.getElementById("lessonViewGoal");
+    var m = document.getElementById("lessonViewMeta");
+    var c = document.getElementById("lessonContent");
+    var back = document.getElementById("lessonBackLink");
+    if (t) t.textContent = "الدرس " + found.code + ": " + found.lesson.title;
+    if (g) g.textContent = found.lesson.goal;
+    if (m) m.innerHTML = '<span class="lesson-code">الدرس ' + found.code + '</span> <span class="badge badge-pending">قيد الإعداد</span> <span class="muted-note">المرحلة ' + (found.si + 1) + ": " + esc(found.stage.title) + "</span>";
+    if (c) c.innerHTML = contentBlock(lid);
+    if (back) back.href = "#stage-" + (found.si + 1);
+    var form = document.getElementById("lessonNoteForm");
+    if (form) { form.reset(); }
+    renderLessonNotes();
+    return true;
+  }
+
+  function routeLessons() {
+    if (!document.getElementById("viewStages")) return;
+    var h = (location.hash || "").replace("#", "");
+    var mStage = h.match(/^stage-(\d+)$/);
+    var mLesson = h.match(/^lesson-(\d+)-(\d+)$/);
+    if (mLesson) {
+      var lid = "lesson-" + mLesson[1] + "-" + mLesson[2];
+      if (renderLessonView(lid)) { showLessonView("viewLesson"); return; }
+    } else if (mStage) {
+      var si = parseInt(mStage[1], 10) - 1;
+      if (renderStageView(si)) { showLessonView("viewStage"); return; }
+    }
+    renderStagesHome();
+    showLessonView("viewStages");
+  }
+
+  function showLessonView(id) {
+    ["viewStages", "viewStage", "viewLesson"].forEach(function (v) {
+      var el = document.getElementById(v);
+      if (el) el.hidden = (v !== id);
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function initReviewPlus() {
+    paintBadge();
+    renderHub();
+    renderStagesHome();
+    routeLessons();
+    window.addEventListener("hashchange", routeLessons);
+    window.addEventListener("storage", function (e) {
+      if (!e.key || e.key === NOTES_KEY) { paintBadge(); renderHub(); renderStagesHome(); routeLessons(); }
+    });
+
+    // نموذج ملاحظة شاشة الدرس
+    var lform = document.getElementById("lessonNoteForm");
+    if (lform) {
+      lform.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!currentLessonId) return;
+        var found = findLesson(currentLessonId);
+        if (!found) return;
+        var notes = loadNotes();
+        counter += 1;
+        var now = new Date().toISOString();
+        notes.push({
+          id: "n" + Date.now().toString(36) + "-" + counter,
+          createdAt: now, updatedAt: now,
+          scope: "lesson", lessonId: currentLessonId, code: found.code,
+          lessonTitle: found.lesson.title, stageTitle: found.stage.title, topic: "",
+          kind: lform.kind.value,
+          target: lform.target.value.trim(),
+          correction: lform.correction.value.trim(),
+          reason: lform.reason.value.trim(),
+          confidence: lform.confidence.value
+        });
+        if (!storeNotes(notes)) alert("تعذّر الحفظ في هذا المتصفح (قد تكون مساحة التخزين ممتلئة).");
+        lform.reset();
+        renderLessonNotes();
+        renderStagesHome();
+        paintBadge();
+      });
+    }
+
+    // تعديل/حذف ملاحظات شاشة الدرس (نفس شكل البيانات دون تغيير)
+    var llist = document.getElementById("lessonNotesList");
+    if (llist) {
+      llist.addEventListener("click", function (e) {
+        var card = e.target.closest("[data-note]");
+        if (!card) return;
+        var id = card.getAttribute("data-note");
+        if (e.target.classList.contains("delete-note")) {
+          if (!confirm("حذف هذه الملاحظة نهائيًا؟")) return;
+          storeNotes(loadNotes().filter(function (n) { return n.id !== id; }));
+          if (lessonEditingId === id) lessonEditingId = null;
+          renderLessonNotes();
+          renderStagesHome();
+          paintBadge();
+        }
+        if (e.target.classList.contains("edit-note")) {
+          lessonEditingId = (lessonEditingId === id) ? null : id;
+          renderLessonNotes();
+        }
+        if (e.target.classList.contains("cancel-edit")) { lessonEditingId = null; renderLessonNotes(); }
+      });
+      llist.addEventListener("submit", function (e) {
+        var form = e.target;
+        if (!form.classList.contains("edit-form")) return;
+        e.preventDefault();
+        var id = form.getAttribute("data-edit");
+        var notes = loadNotes();
+        var n = null;
+        notes.forEach(function (x) { if (x.id === id) n = x; });
+        if (!n) return;
+        n.kind = form.kind.value;
+        n.target = form.target.value.trim();
+        n.correction = form.correction.value.trim();
+        n.reason = form.reason.value.trim();
+        n.confidence = form.confidence.value;
+        n.updatedAt = new Date().toISOString();
+        storeNotes(notes);
+        lessonEditingId = null;
+        renderLessonNotes();
+        paintBadge();
+      });
+    }
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initReviewPlus);
+  else initReviewPlus();
+})();

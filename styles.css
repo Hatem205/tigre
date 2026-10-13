@@ -612,6 +612,88 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
   direction: ltr; unicode-bidi: isolate;
   font-family: "Noto Sans Ethiopic", "Abyssinica SIL", "Nyala", sans-serif;
 }
+
+/* ===== مساحة المراجعة متعددة الشاشات ===== */
+.review-subnav { background: var(--brown-900); }
+.review-subnav-inner { display: flex; gap: 0.25rem; overflow-x: auto; padding: 0.1rem 0; }
+.review-subnav a {
+  color: #e9ddc6; text-decoration: none; font-weight: 800; font-size: 0.9rem;
+  padding: 0.65rem 0.9rem; border-radius: 10px; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.review-subnav a:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.review-subnav a[aria-current="page"] { background: rgba(217, 179, 106, 0.22); color: #ffd98f; }
+.count-badge {
+  background: var(--gold); color: var(--brown-900);
+  font-size: 0.75rem; font-weight: 900; border-radius: 999px;
+  min-width: 22px; height: 22px; display: inline-grid; place-items: center; padding-inline: 5px;
+  font-variant-numeric: tabular-nums;
+}
+.count-badge[hidden] { display: none; }
+.hub-card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.hub-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+.hub-card h3 { margin-bottom: 0.35rem; color: var(--brown-900); }
+.hub-card p { color: var(--muted); margin-bottom: 0; font-size: 0.95rem; }
+.hub-numbers { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 1.5rem; }
+.hub-number {
+  background: #fff; border: 1px solid var(--border-strong); border-radius: var(--radius);
+  padding: 0.8rem 1.6rem; text-align: center; box-shadow: var(--shadow-sm); min-width: 170px;
+}
+.hub-number strong { display: block; font-size: 1.7rem; color: var(--brown-900); font-variant-numeric: tabular-nums; line-height: 1.3; }
+.hub-number span { font-size: 0.85rem; color: var(--muted); font-weight: 700; }
+.back-link { display: inline-block; margin-bottom: 1rem; color: var(--brown-700); font-weight: 800; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.stage-cards { display: grid; gap: 0.8rem; }
+.stage-card {
+  display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit;
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 1.1rem 1.25rem; box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.stage-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+.stage-card-text { flex: 1; min-width: 0; }
+.stage-card-text strong { display: block; color: var(--brown-900); font-size: 1.02rem; }
+.stage-card-text small { color: var(--muted); font-size: 0.85rem; }
+.go { color: var(--brown-500); font-weight: 900; font-size: 1.2rem; flex-shrink: 0; }
+.lesson-rows { display: grid; gap: 0.7rem; margin-top: 1.2rem; }
+.lesson-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.9rem;
+  text-decoration: none; color: inherit;
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1rem 1.15rem; box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.lesson-row:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
+.lesson-row-text { flex: 1; min-width: 0; }
+.lesson-row-text strong { display: block; color: var(--brown-900); font-size: 0.99rem; }
+.lesson-row-text small { color: var(--muted); font-size: 0.85rem; }
+.lesson-row-meta { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.content-empty {
+  background: var(--bg-alt); border: 1px dashed var(--border-strong);
+  border-radius: var(--radius); padding: 1.2rem 1.3rem; margin: 1.1rem 0;
+}
+.content-empty h3 { margin-bottom: 0.3rem; }
+.content-empty p { color: var(--muted); margin-bottom: 0; font-size: 0.95rem; }
+.content-real { margin: 1.1rem 0; display: grid; gap: 0.8rem; }
+.content-real h3 { font-size: 1rem; margin-bottom: 0.2rem; }
+.content-real p { color: var(--muted); margin-bottom: 0; }
+.example-row { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 0.8rem 1rem; }
+.example-row .tigre-text { font-size: 1.1rem; margin-bottom: 0.2rem; }
+.lesson-notes-block { margin-top: 1.5rem; }
+.lesson-notes-block > h3 { margin-bottom: 0.8rem; }
+.hub-back { display: flex; align-items: center; flex-wrap: wrap; gap: 0.8rem 1.2rem; margin-top: 1.5rem; }
+@media (max-width: 560px) {
+  .hub-card { padding: 1.2rem; }
+  .hub-number { min-width: 140px; padding: 0.7rem 1rem; }
+  .lesson-row { flex-direction: column; align-items: stretch; }
+  .lesson-row-meta { justify-content: flex-start; flex-wrap: wrap; }
+}
 @media (max-width: 560px) {
   .check-card, .general-card { padding: 1.15rem; }
   .review-stage summary { padding: 0.95rem 1rem; }

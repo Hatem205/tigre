@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مراجعة الواجهة | مساحة المراجعة</title>
+  <meta name="description" content="راجع واجهة منصة التغرية: العناوين والوصف والحالات وسجّل ملاحظات التصميم." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236B4226'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF6EE' font-family='sans-serif' font-weight='bold'%3E%D8%AA%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="skip-link" href="#content">تخطَّ إلى المحتوى</a>
+
+  <header class="header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="التغرية - الرئيسية">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span class="logo-text">
+          <strong>التغرية</strong>
+          <small>للعربية إلى التغرية</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="curriculum.html" class="nav-link">تعلّم اللغة</a>
+        <a href="index.html#dictionary" class="nav-link">القاموس</a>
+        <a href="index.html#quizzes" class="nav-link">الاختبارات</a>
+        <a href="index.html#about" class="nav-link">عن التطبيق</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="review.html" class="btn btn-primary btn-sm">مساحة المراجعة</a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="فتح القائمة">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="قائمة الهاتف">
+        <a href="index.html">الرئيسية</a>
+        <a href="curriculum.html">تعلّم اللغة</a>
+        <a href="index.html#dictionary">القاموس</a>
+        <a href="index.html#quizzes">الاختبارات</a>
+        <a href="index.html#about">عن التطبيق</a>
+        <a href="review.html" class="btn btn-primary">مساحة المراجعة</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="review-subnav" aria-label="التنقل في مساحة المراجعة">
+    <div class="container review-subnav-inner">
+      <a href="review.html">المساحة الرئيسية</a>
+      <a href="review-lessons.html">الدروس</a>
+      <a href="review-interface.html" aria-current="page">الواجهة</a>
+      <a href="review-notes.html">ملاحظاتي <span class="count-badge" data-notes-badge hidden></span></a>
+    </div>
+  </nav>
+
+  <main id="content">
+    <section class="section">
+      <div class="container narrow">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href="review.html">مساحة المراجعة</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">مراجعة الواجهة</span>
+        </nav>
+        <div class="section-head">
+          <p class="kicker">شاشة مستقلة</p>
+          <h2>مراجعة واجهة الموقع</h2>
+          <p>افتح الصفحتين في نافذة جديدة، ثم ضع علامة على ما راجعته وسجّل ملاحظات التصميم.</p>
+        </div>
+        <div class="grid-2">
+          <a class="teaser teaser-link" href="index.html" target="_blank" rel="noopener">
+            <h3>الصفحة الرئيسية ←</h3>
+            <p>تُفتح في نافذة جديدة لتقارن أثناء المراجعة.</p>
+          </a>
+          <a class="teaser teaser-link" href="curriculum.html" target="_blank" rel="noopener">
+            <h3>صفحة المنهج ←</h3>
+            <p>تُفتح في نافذة جديدة لتقارن أثناء المراجعة.</p>
+          </a>
+        </div>
+        <div class="check-card">
+          <h3>قائمة التحقق من الواجهة</h3>
+          <ul class="check-list">
+            <li><label><input type="checkbox" /> وضوح العناوين الرئيسية في الصفحة الرئيسية</label></li>
+            <li><label><input type="checkbox" /> ملاءمة وصف المنصة وما تعد به الزائر</label></li>
+            <li><label><input type="checkbox" /> صحة أي معلومات لغوية تظهر للزائر (التغرية مقابل التغرينية)</label></li>
+            <li><label><input type="checkbox" /> وضوح حالات الدروس (متاح / قيد الإعداد) وعدم التضليل</label></li>
+            <li><label><input type="checkbox" /> تجربة الهاتف: القراءة والتنقل وحجم الخطوط</label></li>
+          </ul>
+          <p class="mock-caption">تُحفظ علاماتك في متصفحك فقط، مع ملاحظاتك.</p>
+        </div>
+        <div class="general-card">
+          <h3>ملاحظات التصميم والعرض العامة</h3>
+          <p class="muted-note">لملاحظة غير مرتبطة بدرس محدد.</p>
+          <form class="note-form" id="generalForm">
+            <label>الموضوع<select name="topic"><option>واجهة وتصميم</option><option>محتوى تعليمي عام</option><option>أخرى</option></select></label>
+            <label>النص أو العنصر محل الملاحظة<textarea name="target" rows="2" required placeholder="حدد بدقة أين المشكلة"></textarea></label>
+            <label>التصحيح أو الاقتراح<textarea name="correction" rows="2" required placeholder="اكتب الصياغة الصحيحة أو اقتراحك"></textarea></label>
+            <label>سبب التعديل أو الشرح<textarea name="reason" rows="2" placeholder="لماذا هذا التصحيح أصح؟ (اختياري)"></textarea></label>
+            <label>درجة الثقة<select name="confidence"><option>متأكد</option><option>يحتاج إلى تحقق</option></select></label>
+            <div class="form-actions"><button type="submit" class="btn btn-primary">حفظ الملاحظة العامة</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo logo-footer" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><strong>التغرية</strong></a>
+        <p>مساحة المراجعة اللغوية أداة للمختصين ضمن المشروع، وليست جزءًا من تجربة المتعلم.</p>
+      </div>
+      <nav aria-label="روابط الموقع">
+        <h3>أقسام الموقع</h3>
+        <a href="index.html">الرئيسية</a>
+        <a href="curriculum.html">المنهج</a>
+        <a href="index.html#dictionary">القاموس</a>
+        <a href="index.html#quizzes">الاختبارات</a>
+        <a href="index.html#about">عن التطبيق</a>
+      </nav>
+      <nav aria-label="مساحة المراجعة">
+        <h3>مساحة المراجعة</h3>
+        <a href="review.html">المساحة الرئيسية</a>
+        <a href="review-lessons.html">مراجعة الدروس</a>
+        <a href="review-interface.html">مراجعة الواجهة</a>
+        <a href="review-notes.html">ملاحظاتك والتصدير</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> التغرية — جميع الحقوق محفوظة.</p>
+      <p>صُنع بعناية للناطقين بالعربية.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="curriculum.js"></script>
+  <script src="review.js"></script>
+</body>
+</html>
