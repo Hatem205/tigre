@@ -96,7 +96,7 @@
     idx = Math.max(0, Math.min(letters.length - 1, i));
     var L = letters[idx];
     if (els.base) els.base.textContent = L.base;
-    if (els.name) els.name.textContent = L.name + (L.latin ? ' (' + L.latin + ')' : '');
+    if (els.name) els.name.textContent = L.name;
     if (els.arabic) els.arabic.textContent = L.arabicApprox;
     if (els.latin) els.latin.textContent = L.latin || '—';
     if (els.source) els.source.textContent = L.source || '—';
