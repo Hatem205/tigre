@@ -29,10 +29,77 @@
     prompt: document.getElementById('quizPrompt'),
     options: document.getElementById('quizOptions'),
     feedback: document.getElementById('quizFeedback'),
-    qnext: document.getElementById('quizNext')
+    qnext: document.getElementById('quizNext'),
+    index: document.getElementById('lettersIndex'),
+    indexCount: document.getElementById('indexCount'),
+    sourceList: document.getElementById('sourceList'),
+    sourceNote: document.getElementById('sourceNote')
   };
 
+  var groupTitles = {
+    stops: 'توقفات (Plosives)',
+    fricatives: 'احتكاكات (Fricatives)',
+    affricates: 'افريكات (Affricates)',
+    nasals: 'أنفية (Nasals)',
+    liquids: 'سائلة/تقريبية (Liquids/Approximants)'
+  };
+
+  var sourceMap = {};
+  if (window.TIGRE_LETTER_SOURCES) {
+    window.TIGRE_LETTER_SOURCES.forEach(function (s) { sourceMap[s.key] = s; });
+  }
+
   function markSeen(i) { seen[i] = true; try { sessionStorage.setItem('tigre-letters-seen', JSON.stringify(seen)); } catch (e) {} }
+
+  function buildIndex() {
+    if (!els.index) return;
+    var groups = {};
+    letters.forEach(function (L, i) {
+      var g = L.group || 'other';
+      if (!groups[g]) groups[g] = [];
+      groups[g].push({ L: L, i: i });
+    });
+    els.index.innerHTML = Object.keys(groups).map(function (g) {
+      var title = groupTitles[g] || g;
+      var btns = groups[g].map(function (item) {
+        return '<button type="button" class="index-btn" data-idx="' + item.i + '" aria-label="' + item.L.name + '">' + item.L.base + '</button>';
+      }).join('');
+      return '<div class="index-group"><h3 class="index-group-title">' + title + ' (' + groups[g].length + ')</h3><div class="index-grid">' + btns + '</div></div>';
+    }).join('');
+    els.index.querySelectorAll('.index-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var i = parseInt(btn.getAttribute('data-idx'), 10);
+        renderLetter(i);
+        var target = document.getElementById('letterSection');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    if (els.indexCount) {
+      els.indexCount.textContent = letters.length + ' حرفًا أساسيًا — ' + (letters.reduce(function (a, L) { return a + (L.forms || []).length; }, 0)) + ' شكلًا (بما في ذلك الحركات السبع). بانتظار مراجعة المختص.';
+    }
+  }
+
+  function updateIndexHighlight(i) {
+    if (!els.index) return;
+    els.index.querySelectorAll('.index-btn').forEach(function (btn) {
+      var idx = parseInt(btn.getAttribute('data-idx'), 10);
+      btn.classList.toggle('is-current', idx === i);
+    });
+  }
+
+  function renderSources(L) {
+    if (els.sourceList) {
+      var keys = (L.sources && L.sources.length) ? L.sources : [];
+      els.sourceList.innerHTML = keys.map(function (k) {
+        var s = sourceMap[k];
+        if (!s) return '';
+        return '<li><a href="' + s.url + '" target="_blank" rel="noopener">' + s.label + '</a></li>';
+      }).join('');
+    }
+    if (els.sourceNote) {
+      els.sourceNote.textContent = 'المصدر (نص): ' + (L.source || '—') + ' — الحالة: ' + ((L.reviewStatus === 'verified') ? 'تم التحقق' : 'بانتظار مراجعة المختص') + '.';
+    }
+  }
 
   function renderLetter(i) {
     idx = Math.max(0, Math.min(letters.length - 1, i));
@@ -55,6 +122,8 @@
     }
     markSeen(idx);
     updateProgress();
+    updateIndexHighlight(idx);
+    renderSources(L);
     if (els.prev) els.prev.disabled = (idx === 0);
     if (els.next) els.next.disabled = (idx === letters.length - 1);
   }
@@ -111,6 +180,7 @@
   if (els.next) els.next.addEventListener('click', function () { renderLetter(idx + 1); });
   if (els.qnext) els.qnext.addEventListener('click', buildQuiz);
 
+  buildIndex();
   renderLetter(0);
   buildQuiz();
 })();

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236B4226'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF6EE' font-family='sans-serif' font-weight='bold'%3E%D8%AA%3C/text%3E%3C/svg%3E" />
   <style>
     .ethiopic { font-family: "Noto Sans Ethiopic", "Abyssinica SIL", "Nyala", "Ebrima", "Segoe UI", sans-serif; direction: ltr; unicode-bidi: isolate; }
@@ -25,6 +26,22 @@
     .quiz-btn.wrong { background: #fde8e8; border-color: #e6a9a9; }
     .progress-text { text-align: center; color: var(--muted); font-weight: 700; margin-top: 0.6rem; }
     @media (max-width: 560px) { .forms-grid { grid-template-columns: repeat(4, 1fr); } .quiz-options { grid-template-columns: 1fr; } }
+    .letters-index { display: grid; gap: 1rem; }
+    .index-group { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 0.9rem; }
+    .index-group-title { font-size: 0.95rem; font-weight: 800; color: var(--brown-700); margin: 0 0 0.6rem; }
+    .index-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .index-btn {
+      font-family: "Noto Sans Ethiopic", "Abyssinica SIL", "Nyala", "Ebrima", "Segoe UI", sans-serif;
+      min-width: 46px; min-height: 46px; padding: 0.35rem 0.5rem;
+      border: 1px solid var(--border-strong); border-radius: 10px; background: #fff;
+      color: var(--brown-900); font-size: 1.35rem; cursor: pointer; transition: all 0.15s ease;
+    }
+    .index-btn:hover { background: var(--bg); border-color: var(--brown-500); }
+    .index-btn.is-current { background: var(--brown-700); color: #fff; border-color: var(--brown-700); }
+    .source-box { margin-top: 1.2rem; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; }
+    .source-list { margin: 0.5rem 0 0; padding-inline-start: 1.2rem; }
+    .source-list li { margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .source-list a { color: var(--brown-700); font-weight: 700; }
   </style>
 </head>
 <body>
@@ -44,7 +61,6 @@
 
       <nav class="nav" aria-label="التنقل الرئيسي">
         <a href="index.html" class="nav-link top-btn">الرئيسية</a>
-        <a href="index.html#about" class="nav-link top-btn">عن التطبيق</a>
       </nav>
 
       <div class="header-actions">
@@ -78,6 +94,18 @@
       </div>
     </section>
 
+    <section class="section" id="lettersIndexSection">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">قائمة الحروف</p>
+          <h2>جميع حروف التغرية</h2>
+          <p>اختر أي حرف للانتقال مباشرة إلى قسمه. التصنيف الصوتي مساعد (بانتظار مراجعة المختص).</p>
+        </div>
+        <div class="letters-index" id="lettersIndex" aria-label="قائمة حروف التغرية"></div>
+        <p class="mock-caption" id="indexCount"></p>
+      </div>
+    </section>
+
     <section class="section" id="letterSection">
       <div class="container narrow">
         <div class="letter-card">
@@ -98,9 +126,17 @@
 
           <div class="nav-letters">
             <button type="button" class="btn btn-secondary" id="prevBtn">السابق</button>
+            <a href="#lettersIndexSection" class="btn btn-secondary btn-sm" id="backToListBtn">العودة إلى القائمة</a>
             <button type="button" class="btn btn-primary" id="nextBtn">التالي</button>
           </div>
           <p class="progress-text" id="progressText">0 من 24 حرفًا شاهدته في هذه الجلسة</p>
+
+          <div class="source-box">
+            <h3>المصادر والتوثيق</h3>
+            <p class="mock-caption">كل حرف مرتبط بالحركات السبع (forms) ومصدره. لم تُعتمد any مجموعة قبل مراجعة المختص.</p>
+            <ul class="source-list" id="sourceList"></ul>
+            <p class="mock-caption" id="sourceNote"></p>
+          </div>
         </div>
       </div>
     </section>
@@ -118,6 +154,23 @@
           <p class="quiz-feedback" id="quizFeedback"></p>
           <button type="button" class="btn btn-secondary btn-sm" id="quizNext">سؤال جديد</button>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="sourcesSection">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="kicker">التوثيق</p>
+          <h2>المصادر المستخدمة</h2>
+          <p>تمت مقارنة المصادر التالية. لا يُعتبر any حرف أو نطق معتمدًا قبل التحقق من المختص.</p>
+        </div>
+        <ul class="source-list">
+          <li><a href="https://www.everyalphabet.com/tigre" target="_blank" rel="noopener">EveryAlphabet — Tigre</a>: قائمة 24 حرفًا أساسيًا + الحركات السبع + حروف العلة (carriers) + علامات ترقيم.</li>
+          <li><a href="https://web.archive.org/web/2024/https://www.omniglot.com/writing/tigre.htm" target="_blank" rel="noopener">Omniglot — Tigre (أرشيف)</a>: صورة جدول الحروف (غير قابلة للقراءة آليًا) + نص تمهيدي.</li>
+          <li><a href="https://www.speaktigre.com/" target="_blank" rel="noopener">Speak Tigre</a>: أرشيف مصادر/قواميس، لا جدول حروف م machine-readable.</li>
+          <li><a href="https://www.unicode.org/charts/PDF/U1200.pdf" target="_blank" rel="noopener">Unicode — Ethiopic Chart</a>: أشكال Unicode المعتمدة.</li>
+        </ul>
+        <p class="mock-caption">اختلافات ملاحظة: EveryAlphabet يسرد 24 حرفًا أساسيًا (ويستبعد حروفًا مثل ሠ، ኀ، ፀ، ፐ المستخدمة في جعز/أمهرية/تغرينية). Omniglot يعرض جدولًا مرئيًا (لم يُتحقق من أشكاله آليًا). لم يُعثر في المصادر على أشكال ملّبّنة (labialized) معتمدة خصيصًا للتغرية، لذلك لم تُضَف. (بانتظار مراجعة المختص)</p>
       </div>
     </section>
 
