@@ -210,6 +210,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
 /* Sections */
 .section { padding: 2.75rem 0; }
 .section-alt { background: var(--bg-alt); border-block: 1px solid var(--border); }
+
+/* ????? ????? ??? ??? ??????? */
+#home, #journey, #features, #about, #start { background-color: var(--bg); }
+#curriculum, #method, #dictionary, #faq { background-color: var(--bg-alt); }
 .section-head { text-align: center; max-width: 660px; margin: 0 auto 2rem; }
 .section-head .kicker {
   display: flex; align-items: center; justify-content: center; gap: 0.7rem;
@@ -218,7 +222,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
 .section-head .kicker::before, .section-head .kicker::after {
   content: ""; width: 30px; height: 2px; border-radius: 2px; background: var(--brown-300);
 }
-.kicker-light { color: var(--brown-300); }
+.kicker-light { color: var(--brown-500); }
 .section-head h2 { margin-bottom: 0.55rem; }
 .section-head > p { color: var(--muted); margin-bottom: 0.4rem; }
 .section-head > p:last-child { margin-bottom: 0; }
@@ -309,28 +313,27 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
 .teaser-note { font-size: 0.9rem; color: var(--muted); }
 .teaser .btn { margin-top: 0.6rem; }
 
-/* About dark */
+/* About (light, to keep two-color alternation) */
 .section-dark {
-  background:
-    radial-gradient(560px 280px at 12% 12%, rgba(217, 179, 106, 0.14), transparent 65%),
-    linear-gradient(180deg, var(--brown-800), #3c2617);
-  color: #f3e9d6;
+  background: var(--bg);
+  color: var(--ink);
 }
-.section-dark h2 { color: #fff; }
+.section-dark h2 { color: var(--ink); }
 .section-dark .section-head { text-align: start; margin-inline: 0; max-width: none; }
 .section-dark .section-head .kicker { justify-content: flex-start; }
 .section-dark .section-head .kicker::after { display: none; }
-.muted-light { color: #cbbfa9; margin-bottom: 0; }
+.muted-light { color: var(--muted); margin-bottom: 0; }
 .about-grid { display: grid; gap: 1.5rem; }
 .about-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
 .about-list li {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-inline-start: 3px solid var(--gold);
+  background: #fff;
+  border: 1px solid var(--border-strong);
+  border-inline-start: 3px solid var(--brown-700);
   border-radius: 14px; padding: 0.9rem 1.1rem; display: grid; gap: 0.15rem;
+  box-shadow: var(--shadow-sm);
 }
-.about-list strong { color: #ffd98f; }
-.about-list span { color: #e9ddc6; font-size: 0.95rem; }
+.about-list strong { color: var(--brown-900); }
+.about-list span { color: var(--muted); font-size: 0.95rem; }
 
 /* FAQ */
 .faq { display: grid; gap: 0.7rem; }
