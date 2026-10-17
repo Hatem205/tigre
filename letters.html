@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الحروف — التغرية</title>
+  <meta name="description" content="وحدة أولى: تعرّف إلى حروف اللغة التغرية مكتوبة بالخط الجعزي، مع تقريب عربي مساعد للنطق." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236B4226'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF6EE' font-family='sans-serif' font-weight='bold'%3E%D8%AA%3C/text%3E%3C/svg%3E" />
+  <style>
+    .ethiopic { font-family: "Noto Sans Ethiopic", "Abyssinica SIL", "Nyala", "Ebrima", "Segoe UI", sans-serif; direction: ltr; unicode-bidi: isolate; }
+    .letter-big { font-size: clamp(4rem, 14vw, 7rem); line-height: 1; }
+    .forms-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; margin-top: 0.8rem; }
+    .form-cell { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 0.6rem 0.3rem; text-align: center; }
+    .form-cell .ethiopic { font-size: 1.6rem; display: block; }
+    .form-cell small { color: var(--muted); font-size: 0.75rem; }
+    .nav-letters { display: flex; gap: 0.6rem; justify-content: center; margin: 1.2rem 0; }
+    .quiz-options { display: grid; gap: 0.6rem; grid-template-columns: repeat(2, 1fr); margin-top: 0.8rem; }
+    .quiz-btn { background: #fff; border: 1px solid var(--border-strong); border-radius: 12px; padding: 0.9rem; font-size: 1.6rem; cursor: pointer; font-family: inherit; transition: background 0.15s ease; }
+    .quiz-btn:hover { background: var(--bg-alt); }
+    .quiz-btn.correct { background: #e6f4ea; border-color: #a9d8b8; }
+    .quiz-btn.wrong { background: #fde8e8; border-color: #e6a9a9; }
+    .progress-text { text-align: center; color: var(--muted); font-weight: 700; margin-top: 0.6rem; }
+    @media (max-width: 560px) { .forms-grid { grid-template-columns: repeat(4, 1fr); } .quiz-options { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">تخطَّ إلى المحتوى</a>
+
+  <header class="header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="التغرية - الرئيسية">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span class="logo-text">
+          <strong>التغرية</strong>
+          <small>للعربية إلى التغرية</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="index.html#about" class="nav-link">عن التطبيق</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-primary btn-sm">الرئيسية</a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="فتح القائمة">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="قائمة الهاتف">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#about">عن التطبيق</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="page-hero" id="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="مسار التنقل">
+          <a href="index.html">الرئيسية</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">الحروف</span>
+        </nav>
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span> وحدة أولى — حروف فقط</p>
+        <h1>تعلّم حروف التغرية</h1>
+        <p class="lead">في هذه الوحدة ستتعرف إلى حروف اللغة التغرية مكتوبة بالخط الجعزي (Geʽez). التتقريب العربي مساعد للنطق فقط — وليس بديلًا عن النطق الأصلي، وتحتاج اعتماد مختص.</p>
+        <p class="notice">قريبا — المحتوى (قريبا): النطق (قريبا) needs review.</p>
+      </div>
+    </section>
+
+    <section class="section" id="letterSection">
+      <div class="container narrow">
+        <div class="letter-card">
+          <div class="letter-head">
+            <span class="badge badge-pending" id="reviewBadge">بانتظار مراجعة المختص</span>
+            <span class="lesson-code" id="letterCounter">1 / 24</span>
+          </div>
+          <div class="letter-display">
+            <span class="ethiopic letter-big" id="letterBase">ሀ</span>
+          </div>
+          <h2 id="letterName">Ha</h2>
+          <p class="muted-note">تقريب النطق بالعربية (مساعد): <strong id="letterArabic">هـ</strong> — التمثيل اللاتيني: <span id="letterLatin">h</span></p>
+          <p class="mock-caption">مصدر: <span id="letterSource">—</span></p>
+
+          <h3>أشكال الحرف مع الحركات (عند توفرها)</h3>
+          <div class="forms-grid" id="formsGrid"></div>
+          <p class="mock-caption">الأشكال (forms) مأخوذة من جدول Omniglot/Wiktionary للتغرية — بانتظار تحقق المختص. لا تُنشأ آليًا.</p>
+
+          <div class="nav-letters">
+            <button type="button" class="btn btn-secondary" id="prevBtn">السابق</button>
+            <button type="button" class="btn btn-primary" id="nextBtn">التالي</button>
+          </div>
+          <p class="progress-text" id="progressText">0 من 24 حرفًا شاهدته في هذه الجلسة</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="quizSection">
+      <div class="container narrow">
+        <div class="section-head">
+          <p class="kicker">تدريب بسيط</p>
+          <h2>اختر الحرف الصحيح</h2>
+          <p>يُعرض تقريب النطق بالعربية — اختر الحرف الجعزي المطابق. (عرض تجريبي)</p>
+        </div>
+        <div class="quiz-box">
+          <p class="quiz-prompt">أي حرف يقابل: <strong id="quizPrompt">—</strong> ؟</p>
+          <div class="quiz-options" id="quizOptions"></div>
+          <p class="quiz-feedback" id="quizFeedback"></p>
+          <button type="button" class="btn btn-secondary btn-sm" id="quizNext">سؤال جديد</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="back">
+      <div class="container cta-box">
+        <p class="cta-kicker">أحسنت</p>
+        <h2>عد إلى الصفحة الرئيسية</h2>
+        <p>لا تنسَ مراجعة المختص قبل الاعتماد على any نطق.</p>
+        <div class="hero-cta center">
+          <a href="index.html" class="btn btn-primary btn-light">العودة إلى الرئيسية</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo logo-footer" href="index.html"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><strong>التغرية</strong></a>
+        <p>وحدة حروف — تجريبية (قريبا).</p>
+      </div>
+      <nav aria-label="روابط الموقع">
+        <h3>أقسام الموقع</h3>
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#about">عن التطبيق</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> التغرية — جميع الحقوق محفوظة.</p>
+      <p>صُنع بعناية للناطقين بالعربية.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="content/tigre-letters.js"></script>
+  <script src="letters.js"></script>
+</body>
+</html>
