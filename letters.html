@@ -50,7 +50,8 @@
 
       .letters-index { gap: 0.6rem; }
       .index-grid { gap: 0.3rem; }
-      .index-btn { min-width: 38px; min-height: 38px; font-size: 1.15rem; padding: 0.2rem 0.25rem; }
+      .index-btn { min-width: 52px; min-height: 52px; font-size: 1.1rem; padding: 0.2rem 0.2rem; }
+      .index-btn .index-ar { font-size: 0.56rem; }
       #indexCount { font-size: 0.72rem; }
 
       .quiz-box { padding: 0.9rem; }
@@ -63,7 +64,7 @@
     @media (min-width: 481px) and (max-width: 1019px) {
       .letter-card { padding: 1.1rem; }
       .letter-big { font-size: clamp(3.4rem, 11vw, 5.2rem); }
-      .index-btn { min-width: 42px; min-height: 42px; font-size: 1.2rem; }
+      .index-btn { min-width: 52px; min-height: 52px; font-size: 1.15rem; }
     }
     .letters-index { direction: rtl; }
     .index-group { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 0.9rem; }
@@ -71,9 +72,15 @@
     .index-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .index-btn {
       font-family: "Noto Sans Ethiopic", "Abyssinica SIL", "Nyala", "Ebrima", "Segoe UI", sans-serif;
-      min-width: 46px; min-height: 46px; padding: 0.35rem 0.5rem;
+      min-width: 56px; min-height: 56px; padding: 0.25rem 0.35rem;
       border: 1px solid var(--border-strong); border-radius: 10px; background: #fff;
       color: var(--brown-900); font-size: 1.35rem; cursor: pointer; transition: all 0.15s ease;
+      display: grid; place-items: center; gap: 0.1rem; text-align: center; line-height: 1.1;
+    }
+    .index-btn .index-ar {
+      font-family: var(--font);
+      font-size: 0.62rem; font-weight: 700; color: var(--muted);
+      white-space: nowrap; line-height: 1.2;
     }
     .index-btn:hover { background: var(--bg); border-color: var(--brown-500); }
     .index-btn.is-current { background: var(--brown-700); color: #fff; border-color: var(--brown-700); }

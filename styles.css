@@ -501,11 +501,15 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
   .hero-points li { font-size: 0.76rem; padding: 0.28rem 0.6rem; gap: 0.3rem; }
   .hero-points svg { width: 14px; height: 14px; }
 
-  .card { padding: 0.95rem; }  .grid-3 { gap: 0.7rem; }
-  .card p { font-size: 0.86rem; }
-  .card h3 { font-size: 0.92rem; }
-  .card .icon { width: 34px; height: 34px; }
-  .card .icon svg { width: 18px; height: 18px; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 0.55rem; }
+  .card { padding: 0.8rem; }
+  .card p { font-size: 0.78rem; }
+  .card h3 { font-size: 0.85rem; }
+  .card .icon { width: 30px; height: 30px; margin-bottom: 0.5rem; }
+  .card .icon svg { width: 16px; height: 16px; }
+  .skeleton { gap: 0.3rem; margin-top: 0.6rem; padding-top: 0.6rem; }
+  .skeleton i { height: 7px; }
+  .method .mock-progress { margin-top: 0.6rem; }
   .visual-card { padding: 0.8rem; }
   .visual-card::before { margin: -0.8rem -0.8rem 0.8rem; }
   .visual-pattern { height: 56px; }
