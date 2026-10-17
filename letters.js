@@ -18,8 +18,8 @@
     base: document.getElementById('letterBase'),
     name: document.getElementById('letterName'),
     arabic: document.getElementById('letterArabic'),
-    latin: document.getElementById('letterLatin'),
-    source: document.getElementById('letterSource'),
+    latin: null,
+    source: null,
     counter: document.getElementById('letterCounter'),
     badge: document.getElementById('reviewBadge'),
     forms: document.getElementById('formsGrid'),
@@ -31,9 +31,7 @@
     feedback: document.getElementById('quizFeedback'),
     qnext: document.getElementById('quizNext'),
     index: document.getElementById('lettersIndex'),
-    indexCount: document.getElementById('indexCount'),
-    sourceList: document.getElementById('sourceList'),
-    sourceNote: document.getElementById('sourceNote')
+    indexCount: document.getElementById('indexCount')
   };
 
   var groupTitles = {
@@ -43,11 +41,6 @@
     nasals: 'أنفية (Nasals)',
     liquids: 'سائلة/تقريبية (Liquids/Approximants)'
   };
-
-  var sourceMap = {};
-  if (window.TIGRE_LETTER_SOURCES) {
-    window.TIGRE_LETTER_SOURCES.forEach(function (s) { sourceMap[s.key] = s; });
-  }
 
   function markSeen(i) { seen[i] = true; try { sessionStorage.setItem('tigre-letters-seen', JSON.stringify(seen)); } catch (e) {} }
 
@@ -78,28 +71,12 @@
     });
   }
 
-  function renderSources(L) {
-    if (els.sourceList) {
-      var keys = (L.sources && L.sources.length) ? L.sources : [];
-      els.sourceList.innerHTML = keys.map(function (k) {
-        var s = sourceMap[k];
-        if (!s) return '';
-        return '<li><a href="' + s.url + '" target="_blank" rel="noopener">' + s.label + '</a></li>';
-      }).join('');
-    }
-    if (els.sourceNote) {
-      els.sourceNote.textContent = 'المصدر (نص): ' + (L.source || '—') + ' — الحالة: ' + ((L.reviewStatus === 'verified') ? 'تم التحقق' : 'بانتظار مراجعة المختص') + '.';
-    }
-  }
-
   function renderLetter(i) {
     idx = Math.max(0, Math.min(letters.length - 1, i));
     var L = letters[idx];
     if (els.base) els.base.textContent = L.base;
     if (els.name) els.name.textContent = L.name;
     if (els.arabic) els.arabic.textContent = L.arabicApprox;
-    if (els.latin) els.latin.textContent = L.latin || '—';
-    if (els.source) els.source.textContent = L.source || '—';
     if (els.counter) els.counter.textContent = (idx + 1) + ' / ' + letters.length;
     if (els.badge) {
       els.badge.textContent = (L.reviewStatus === 'verified') ? 'تم التحقق' : 'بانتظار مراجعة المختص';
@@ -114,7 +91,6 @@
     markSeen(idx);
     updateProgress();
     updateIndexHighlight(idx);
-    renderSources(L);
     if (els.prev) els.prev.disabled = (idx === 0);
     if (els.next) els.next.disabled = (idx === letters.length - 1);
   }
@@ -131,7 +107,7 @@
     var answerIdx = Math.floor(Math.random() * letters.length);
     quizAnswer = answerIdx;
     var L = letters[answerIdx];
-    if (els.prompt) els.prompt.textContent = L.arabicApprox + (L.latin ? ' (' + L.latin + ')' : '');
+    if (els.prompt) els.prompt.textContent = L.arabicApprox;
     // 4 options: answer + 3 distractors
     var opts = [answerIdx];
     while (opts.length < 4) {
