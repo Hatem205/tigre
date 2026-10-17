@@ -26,7 +26,7 @@
     .quiz-btn.wrong { background: #fde8e8; border-color: #e6a9a9; }
     .progress-text { text-align: center; color: var(--muted); font-weight: 700; margin-top: 0.6rem; }
     @media (max-width: 560px) { .forms-grid { grid-template-columns: repeat(4, 1fr); } .quiz-options { grid-template-columns: 1fr; } }
-    .letters-index { display: grid; gap: 1rem; }
+    .letters-index { direction: rtl; }
     .index-group { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 0.9rem; }
     .index-group-title { font-size: 0.95rem; font-weight: 800; color: var(--brown-700); margin: 0 0 0.6rem; }
     .index-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -94,18 +94,6 @@
       </div>
     </section>
 
-    <section class="section" id="lettersIndexSection">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">قائمة الحروف</p>
-          <h2>جميع حروف التغرية</h2>
-          <p>اختر أي حرف للانتقال مباشرة إلى قسمه. التصنيف الصوتي مساعد (بانتظار مراجعة المختص).</p>
-        </div>
-        <div class="letters-index" id="lettersIndex" aria-label="قائمة حروف التغرية"></div>
-        <p class="mock-caption" id="indexCount"></p>
-      </div>
-    </section>
-
     <section class="section" id="letterSection">
       <div class="container narrow">
         <div class="letter-card">
@@ -138,6 +126,18 @@
             <p class="mock-caption" id="sourceNote"></p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="lettersIndexSection">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">قائمة الحروف</p>
+          <h2>جميع حروف التغرية</h2>
+          <p>جميع الحروف متتابعة بالترتيب المعتمد. اضغط على أي حرف للانتقال إلى قسمه.</p>
+        </div>
+        <div class="letters-index" id="lettersIndex" aria-label="قائمة حروف التغرية"></div>
+        <p class="mock-caption" id="indexCount"></p>
       </div>
     </section>
 

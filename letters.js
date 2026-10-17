@@ -53,19 +53,10 @@
 
   function buildIndex() {
     if (!els.index) return;
-    var groups = {};
-    letters.forEach(function (L, i) {
-      var g = L.group || 'other';
-      if (!groups[g]) groups[g] = [];
-      groups[g].push({ L: L, i: i });
-    });
-    els.index.innerHTML = Object.keys(groups).map(function (g) {
-      var title = groupTitles[g] || g;
-      var btns = groups[g].map(function (item) {
-        return '<button type="button" class="index-btn" data-idx="' + item.i + '" aria-label="' + item.L.name + '">' + item.L.base + '</button>';
-      }).join('');
-      return '<div class="index-group"><h3 class="index-group-title">' + title + ' (' + groups[g].length + ')</h3><div class="index-grid">' + btns + '</div></div>';
-    }).join('');
+    // عرض جميع الحروف متتابعة بالترتيب المعتمد (من اليمين إلى اليسار عبر dir="rtl")
+    els.index.innerHTML = '<div class="index-grid">' + letters.map(function (L, i) {
+      return '<button type="button" class="index-btn" data-idx="' + i + '" aria-label="' + L.name + '">' + L.base + '</button>';
+    }).join('') + '</div>';
     els.index.querySelectorAll('.index-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var i = parseInt(btn.getAttribute('data-idx'), 10);
