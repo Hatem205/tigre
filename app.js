@@ -41,27 +41,37 @@
     onScroll();
   }
 
-  // تمييز الرابط النشط حسب القسم الظاهر
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
-  var sections = ['home', 'curriculum', 'dictionary', 'quizzes', 'about']
+  // تمييز الزر النشط حسب القسم الظاهر (أزرار الرأس)
+  var topBtns = Array.prototype.slice.call(document.querySelectorAll('.top-btn'));
+  var sections = ['home', 'curriculum', 'dictionary', 'quizzes', 'about', 'journey']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
 
-  if ('IntersectionObserver' in window && sections.length && links.length) {
+  if ('IntersectionObserver' in window && sections.length && topBtns.length) {
     var map = {};
-    links.forEach(function (a) {
+    topBtns.forEach(function (a) {
       var href = a.getAttribute('href');
       if (href && href.charAt(0) === '#') map[href.slice(1)] = a;
     });
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting && map[en.target.id]) {
-          links.forEach(function (a) { a.classList.remove('is-active'); });
+          topBtns.forEach(function (a) { a.classList.remove('is-active'); });
           map[en.target.id].classList.add('is-active');
         }
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
     sections.forEach(function (s) { obs.observe(s); });
+  }
+
+  // تبديل فوري للزر المضغوط
+  if (topBtns.length) {
+    topBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        topBtns.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+      });
+    });
   }
 
   // سنة الحقوق

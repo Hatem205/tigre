@@ -112,6 +112,18 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
   cursor: not-allowed; border-style: dashed; border-color: var(--border-strong);
 }
 .btn-light { background: #fff; color: var(--brown-900); }
+
+/* أزرار رأس الصفحة موحّدة — النشط فقط بني */
+.top-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  text-decoration: none; font-weight: 800; font-size: 0.92rem;
+  padding: 0.5rem 1.1rem; min-height: 44px;
+  border-radius: 10px; border: 1px solid var(--border-strong);
+  background: #fff; color: var(--brown-900);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.top-btn:hover { background: var(--bg-alt); border-color: var(--brown-500); transform: translateY(-1px); }
+.top-btn.is-active { background: var(--brown-700); color: #fff; border-color: var(--brown-700); box-shadow: var(--shadow-sm); }
 .btn-light:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25); }
 .btn-outline-light { border-color: rgba(255, 255, 255, 0.55); color: #fff; }
 .btn-outline-light:hover { background: rgba(255, 255, 255, 0.12); }
