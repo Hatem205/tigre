@@ -483,52 +483,61 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
 }
 
 @media (max-width: 560px) {
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.25rem; }
-  h3 { font-size: 0.98rem; }
-  .lead { font-size: 0.92rem; }
-  .hero { padding: 1.25rem 0 1.1rem; }
-  .section { padding: 1.6rem 0; }
-  .section-head { margin-bottom: 1.1rem; }
+  h1 { font-size: 1.3rem; line-height: 1.3; }
+  h2 { font-size: 1.05rem; }
+  h3 { font-size: 0.9rem; }
+  .lead { font-size: 0.78rem; }
+  .hero { padding: 0.9rem 0 0.85rem; }
+  .section { padding: 1.1rem 0; }
+  .section-head { margin-bottom: 0.75rem; gap: 0.15rem; }
+  .section-head p { font-size: 0.78rem; }
+  .kicker { font-size: 0.7rem !important; }
 
-  .eyebrow { padding: 0.28rem 0.7rem; font-size: 0.74rem; gap: 0.4rem; }
-  .eyebrow .dot { width: 6px; height: 6px; }
-  .hero-text h1 { margin: 0.65rem 0 0.45rem; }
-  .lead { margin-bottom: 0.6rem; }
-  .hero-cta { gap: 0.55rem; margin: 0.95rem 0 0.8rem; }
-  .hero-cta .btn { min-height: 42px; padding: 0.6rem 1.1rem; font-size: 0.92rem; }
-  .hero-points { gap: 0.4rem; }
-  .hero-points li { font-size: 0.76rem; padding: 0.28rem 0.6rem; gap: 0.3rem; }
-  .hero-points svg { width: 14px; height: 14px; }
+  .eyebrow { padding: 0.2rem 0.55rem; font-size: 0.62rem; gap: 0.3rem; }
+  .eyebrow .dot { width: 5px; height: 5px; }
+  .hero-text h1 { margin: 0.5rem 0 0.3rem; }
+  .lead { margin-bottom: 0.4rem; }
+  .hero-cta { gap: 0.4rem; margin: 0.75rem 0 0.5rem; }
+  .hero-cta .btn, .btn { min-height: 38px; padding: 0.42rem 0.85rem; font-size: 0.8rem; }
+  .btn-sm { min-height: 34px; padding: 0.28rem 0.65rem; font-size: 0.76rem; }
+  .hero-points { gap: 0.28rem; }
+  .hero-points li { font-size: 0.62rem; padding: 0.18rem 0.45rem; gap: 0.22rem; }
+  .hero-points svg { width: 11px; height: 11px; }
 
-  .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 0.55rem; }
-  .card { padding: 0.8rem; }
-  .card p { font-size: 0.78rem; }
-  .card h3 { font-size: 0.85rem; }
-  .card .icon { width: 30px; height: 30px; margin-bottom: 0.5rem; }
-  .card .icon svg { width: 16px; height: 16px; }
-  .skeleton { gap: 0.3rem; margin-top: 0.6rem; padding-top: 0.6rem; }
-  .skeleton i { height: 7px; }
-  .method .mock-progress { margin-top: 0.6rem; }
-  .visual-card { padding: 0.8rem; }
-  .visual-card::before { margin: -0.8rem -0.8rem 0.8rem; }
-  .visual-pattern { height: 56px; }
-  .mini-stat { padding: 0.4rem 0.2rem; }
-  .mini-stat strong { font-size: 1rem; }
-  .mini-stat span { font-size: 0.65rem; }
-  .mock-note { font-size: 0.75rem; }
-  .teaser { padding: 1.25rem 0.95rem 1rem; }
-  .cta { padding: 1.6rem 0; }
-  .cta-box { padding: 1.5rem 1rem; border-radius: 18px; }
-  .cta-box h2 { font-size: 1.15rem; }
-  .cta-note { font-size: 0.75rem; }
-  .footer { padding: 1.6rem 0 0; }
-  .footer-grid { gap: 1rem; font-size: 0.9rem; }
-  .footer-bottom { font-size: 0.78rem; }
+  .grid-3, .grid-2, .grid-4 { gap: 0.75rem; }
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card { padding: 0.85rem; border-radius: 14px; }
+  .card p { font-size: 0.72rem; line-height: 1.6; }
+  .card h3 { font-size: 0.82rem; margin-bottom: 0.25rem; }
+  .card .icon { width: 28px; height: 28px; margin-bottom: 0.5rem; border-radius: 11px; }
+  .card .icon svg { width: 14px; height: 14px; }
+  .card.method .skeleton { gap: 0.25rem; margin-top: 0.5rem; padding-top: 0.5rem; }
+  .skeleton i { height: 6px; }
+  .visual-card { padding: 0.65rem; }
+  .visual-card::before { height: 4px; margin: -0.65rem -0.65rem 0.6rem; }
+  .visual-pattern { height: 42px; border-radius: 12px; margin-bottom: 0.6rem; }
+  .mini-stat { padding: 0.3rem 0.2rem; border-radius: 10px; }
+  .mini-stat strong { font-size: 0.9rem; }
+  .mini-stat span { font-size: 0.6rem; }
+  .mock-note { font-size: 0.65rem; }
+  .teaser { padding: 1.05rem 0.85rem 0.85rem; border-radius: 14px; }
+  .cta { padding: 1.1rem 0; }
+  .cta-box { padding: 1.1rem 0.9rem; border-radius: 16px; }
+  .cta-box h2 { font-size: 1rem; }
+  .cta-note { font-size: 0.62rem; margin-top: 0.8rem; }
+  .footer { padding: 1.1rem 0 0; }
+  .footer-grid { gap: 0.6rem; font-size: 0.7rem; }
+  .footer h3 { font-size: 0.82rem; }
+  .footer-bottom { font-size: 0.6rem; padding: 0.7rem 0; }
+  .footer-brand p { font-size: 0.7rem; }
+
+  .hero-visual { padding: 0.9rem 0.6rem; min-height: 160px; border-radius: 16px; margin-top: 0.4rem; }
+  .ethiopic-cycle { font-size: clamp(2.5rem, 7.5vw, 3.6rem); }
+  .cycle-caption { font-size: 0.65rem; min-height: 1rem; }
 }
 
 @media (min-width: 481px) and (max-width: 1019px) {
-  .header-actions .btn { padding: 0.45rem 0.85rem; font-size: 0.88rem; min-height: 42px; }
+  .header-actions .btn { padding: 0.35rem 0.65rem; font-size: 0.74rem; min-height: 34px; }
 }
 
 
