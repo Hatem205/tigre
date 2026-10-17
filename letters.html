@@ -25,7 +25,46 @@
     .quiz-btn.correct { background: #e6f4ea; border-color: #a9d8b8; }
     .quiz-btn.wrong { background: #fde8e8; border-color: #e6a9a9; }
     .progress-text { text-align: center; color: var(--muted); font-weight: 700; margin-top: 0.6rem; }
-    @media (max-width: 560px) { .forms-grid { grid-template-columns: repeat(4, 1fr); } .quiz-options { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) {
+      .page-hero { padding: 1.15rem 0 1rem; }
+      .page-hero h1 { font-size: 1.35rem; }
+      .page-hero .lead { font-size: 0.86rem; }
+      .breadcrumb { font-size: 0.78rem; margin-bottom: 0.55rem; }
+
+      .letter-card { padding: 0.85rem; }
+      .letter-big { font-size: clamp(2.6rem, 9.5vw, 4.2rem); }
+      .letter-head { gap: 0.4rem; flex-wrap: wrap; }
+      .badge { font-size: 0.7rem; padding: 0.08rem 0.5rem; }
+      .lesson-code { font-size: 0.7rem; }
+      .muted-note { font-size: 0.86rem; }
+      .letter-card h3 { font-size: 0.9rem; margin-top: 0.7rem; }
+
+      .forms-grid { grid-template-columns: repeat(4, 1fr); gap: 0.35rem; }
+      .form-cell { padding: 0.35rem 0.15rem; }
+      .form-cell .ethiopic { font-size: 1.05rem; }
+      .form-cell small { font-size: 0.68rem; }
+
+      .nav-letters { gap: 0.35rem; }
+      .nav-letters .btn { padding: 0.45rem 0.7rem; font-size: 0.85rem; min-height: 40px; flex: 1 1 auto; }
+      .progress-text { font-size: 0.78rem; }
+
+      .letters-index { gap: 0.6rem; }
+      .index-grid { gap: 0.3rem; }
+      .index-btn { min-width: 38px; min-height: 38px; font-size: 1.15rem; padding: 0.2rem 0.25rem; }
+      #indexCount { font-size: 0.72rem; }
+
+      .quiz-box { padding: 0.9rem; }
+      .quiz-prompt { font-size: 0.9rem; }
+      .quiz-btn { font-size: 1.35rem; }
+      .quiz-feedback { font-size: 0.85rem; }
+      .source-list li { font-size: 0.8rem; }
+      .mock-caption { font-size: 0.72rem; }
+    }
+    @media (min-width: 481px) and (max-width: 1019px) {
+      .letter-card { padding: 1.1rem; }
+      .letter-big { font-size: clamp(3.4rem, 11vw, 5.2rem); }
+      .index-btn { min-width: 42px; min-height: 42px; font-size: 1.2rem; }
+    }
     .letters-index { direction: rtl; }
     .index-group { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 0.9rem; }
     .index-group-title { font-size: 0.95rem; font-weight: 800; color: var(--brown-700); margin: 0 0 0.6rem; }

@@ -483,33 +483,61 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--brown-300); out
 }
 
 @media (max-width: 560px) {
-  h1 { font-size: 1.78rem; }
-  .lead { font-size: 1rem; }
-  .hero { padding: 2rem 0 1.75rem; }
-  .section { padding: 2.25rem 0; }
-  .section-head { margin-bottom: 1.5rem; }
-  .card { padding: 1.15rem; }
-  .visual-card { padding: 0.95rem; }
-  .visual-card::before { margin: -0.95rem -0.95rem 0.9rem; }
-  .visual-pattern { height: 68px; }
-  .mini-stat { padding: 0.5rem 0.25rem; }
-  .mini-stat strong { font-size: 1.12rem; }
-  .mini-stat span { font-size: 0.7rem; }
-  .mock-note { font-size: 0.8rem; }
-  .path li { padding: 0.95rem 1rem; gap: 0.85rem; }
-  .step { width: 40px; height: 40px; font-size: 1rem; }
-  .path::before { inset-inline-start: 35px; }
-  .teaser { padding: 1.6rem 1.15rem 1.25rem; }
-  .cta { padding: 2.25rem 0; }
-  .cta-box { padding: 2.1rem 1.15rem; border-radius: 20px; }
-  .footer-bottom { font-size: 0.83rem; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 0.98rem; }
+  .lead { font-size: 0.92rem; }
+  .hero { padding: 1.25rem 0 1.1rem; }
+  .section { padding: 1.6rem 0; }
+  .section-head { margin-bottom: 1.1rem; }
+
+  .eyebrow { padding: 0.28rem 0.7rem; font-size: 0.74rem; gap: 0.4rem; }
+  .eyebrow .dot { width: 6px; height: 6px; }
+  .hero-text h1 { margin: 0.65rem 0 0.45rem; }
+  .lead { margin-bottom: 0.6rem; }
+  .hero-cta { gap: 0.55rem; margin: 0.95rem 0 0.8rem; }
+  .hero-cta .btn { min-height: 42px; padding: 0.6rem 1.1rem; font-size: 0.92rem; }
+  .hero-points { gap: 0.4rem; }
+  .hero-points li { font-size: 0.76rem; padding: 0.28rem 0.6rem; gap: 0.3rem; }
+  .hero-points svg { width: 14px; height: 14px; }
+
+  .card { padding: 0.95rem; }  .grid-3 { gap: 0.7rem; }
+  .card p { font-size: 0.86rem; }
+  .card h3 { font-size: 0.92rem; }
+  .card .icon { width: 34px; height: 34px; }
+  .card .icon svg { width: 18px; height: 18px; }
+  .visual-card { padding: 0.8rem; }
+  .visual-card::before { margin: -0.8rem -0.8rem 0.8rem; }
+  .visual-pattern { height: 56px; }
+  .mini-stat { padding: 0.4rem 0.2rem; }
+  .mini-stat strong { font-size: 1rem; }
+  .mini-stat span { font-size: 0.65rem; }
+  .mock-note { font-size: 0.75rem; }
+  .teaser { padding: 1.25rem 0.95rem 1rem; }
+  .cta { padding: 1.6rem 0; }
+  .cta-box { padding: 1.5rem 1rem; border-radius: 18px; }
+  .cta-box h2 { font-size: 1.15rem; }
+  .cta-note { font-size: 0.75rem; }
+  .footer { padding: 1.6rem 0 0; }
+  .footer-grid { gap: 1rem; font-size: 0.9rem; }
+  .footer-bottom { font-size: 0.78rem; }
 }
+
+@media (min-width: 481px) and (max-width: 1019px) {
+  .header-actions .btn { padding: 0.45rem 0.85rem; font-size: 0.88rem; min-height: 42px; }
+}
+
 
 @media (max-width: 480px) {
   .header-actions .btn { display: none; }
   .mobile-menu .btn { display: inline-flex; margin-top: 0.5rem; width: 100%; }
   .hero-cta .btn { flex: 1 1 100%; }
-  .hero-points li { font-size: 0.84rem; }
+  .hero-points li { font-size: 0.72rem; }
+  .header-actions .btn { display: inline-flex; }
+  .header-actions { gap: 0.35rem; }
+  .menu-btn { width: 40px; height: 40px; }
+  .menu-btn svg { width: 18px; height: 18px; }
+  .logo-text small { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
