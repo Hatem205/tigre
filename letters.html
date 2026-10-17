@@ -19,8 +19,9 @@
     .form-cell .ethiopic { font-size: 1.6rem; display: block; }
     .form-cell small { color: var(--muted); font-size: 0.75rem; }
     .nav-letters { display: flex; gap: 0.6rem; justify-content: center; margin: 1.2rem 0; }
-    .quiz-options { display: grid; gap: 0.6rem; grid-template-columns: repeat(2, 1fr); margin-top: 0.8rem; }
-    .quiz-btn { background: #fff; border: 1px solid var(--border-strong); border-radius: 12px; padding: 0.9rem; font-size: 1.6rem; cursor: pointer; font-family: inherit; transition: background 0.15s ease; }
+    .quiz-options { display: grid; gap: 0.4rem; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0.6rem; }
+    .quiz-btn { background: #fff; border: 1px solid var(--border-strong); border-radius: 12px; padding: 0.55rem 0.3rem; font-size: 1.5rem; cursor: pointer; font-family: inherit; transition: background 0.15s ease, border-color 0.15s ease; display: grid; place-items: center; }
+    .quiz-btn:hover { background: var(--bg-alt); border-color: var(--brown-500); }
     .quiz-btn:hover { background: var(--bg-alt); }
     .quiz-btn.correct { background: #e6f4ea; border-color: #a9d8b8; }
     .quiz-btn.wrong { background: #fde8e8; border-color: #e6a9a9; }
@@ -54,10 +55,11 @@
       .index-btn .index-ar { font-size: 0.56rem; }
       #indexCount { font-size: 0.72rem; }
 
-      .quiz-box { padding: 0.9rem; }
-      .quiz-prompt { font-size: 0.9rem; }
-      .quiz-btn { font-size: 1.35rem; }
-      .quiz-feedback { font-size: 0.85rem; }
+      .quiz-box { padding: 0.85rem; }
+      .quiz-prompt { font-size: 0.85rem; }
+      .quiz-options { gap: 0.3rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .quiz-btn { font-size: 1.25rem; padding: 0.4rem 0.2rem; border-radius: 10px; }
+      .quiz-feedback { font-size: 0.75rem; }
       .source-list li { font-size: 0.8rem; }
       .mock-caption { font-size: 0.72rem; }
     }
