@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236B4226'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF6EE' font-family='sans-serif' font-weight='bold'%3E%D8%AA%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -77,15 +78,14 @@
           </ul>
         </div>
 
-      </div>
-    
-
         <div class="hero-visual" aria-label="مربع حروف تغرية">
           <div class="letter-cycle" id="letterCycle">
-            <span class="ethiopic-cycle" id="cycleLetter">ሀ</span>
+            <span class="ethiopic-cycle" id="cycleLetter" aria-live="polite">ሀ</span>
+            <span class="cycle-caption" id="cycleCaption">هـ — Ha</span>
           </div>
         </div>
-</section>
+      </div>
+    </section>
 
     <!-- 3. التعريف بالتطبيق -->
     <section class="section section-alt" id="curriculum">
@@ -267,12 +267,35 @@
     </div>
   </footer>
 
+  <script src="content/tigre-letters.js"></script>
   <script src="app.js"></script>
+  <script>
+  (function () {
+    var letterEl = document.getElementById('cycleLetter');
+    var captionEl = document.getElementById('cycleCaption');
+    if (!letterEl || !window.TIGRE_LETTERS) return;
+    var letters = window.TIGRE_LETTERS;
+    var i = 0;
+    function render(idx) {
+      var L = letters[idx];
+      letterEl.style.opacity = '0';
+      if (captionEl) captionEl.style.opacity = '0';
+      setTimeout(function () {
+        letterEl.textContent = L.base;
+        if (captionEl) captionEl.textContent = (L.arabicApprox || '') + (L.name ? ' — ' + L.name : '');
+        letterEl.style.opacity = '1';
+        if (captionEl) captionEl.style.opacity = '1';
+      }, 260);
+    }
+    // initial
+    letterEl.textContent = letters[0].base;
+    if (captionEl) captionEl.textContent = (letters[0].arabicApprox || '') + (letters[0].name ? ' — ' + letters[0].name : '');
+    i = 1;
+    setInterval(function () {
+      render(i);
+      i = (i + 1) % letters.length;
+    }, 1700);
+  })();
+  </script>
 </body>
-</html
-
-        <div class="hero-visual" aria-label="مربع حروف تغرية">
-          <div class="letter-cycle" id="letterCycle">
-            <span class="ethiopic-cycle" id="cycleLetter">ሀ</span>
-          </div>
-        </div>>
+</html>
