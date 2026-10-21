@@ -49,7 +49,7 @@
     if (!els.index) return;
     // عرض جميع الحروف متتابعة بالترتيب المعتمد (من اليمين إلى اليسار عبر dir="rtl")
     els.index.innerHTML = '<div class="index-grid">' + letters.map(function (L, i) {
-      return '<button type="button" class="index-btn" data-idx="' + i + '" aria-label="' + L.name + ' / ' + (L.arabicApprox || '') + '"><span class="index-base">' + L.base + '</span><span class="index-ar">' + (L.arabicApprox || '') + '</span></button>';
+      return '<button type="button" class="index-btn" data-idx="' + i + '" aria-label="' + (L.no != null ? L.no : (i + 1)) + ' — ' + L.name + ' / ' + (L.arabicApprox || '') + '"><span class="index-no">' + (L.no != null ? L.no : (i + 1)) + '</span><span class="index-base">' + L.base + '</span><span class="index-ar">' + (L.arabicApprox || '') + '</span></button>';
     }).join('') + '</div>';
     els.index.querySelectorAll('.index-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
