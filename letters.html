@@ -13,7 +13,13 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236B4226'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF6EE' font-family='sans-serif' font-weight='bold'%3E%D8%AA%3C/text%3E%3C/svg%3E" />
   <style>
     .ethiopic { font-family: "Noto Sans Ethiopic", "Abyssinica SIL", "Nyala", "Ebrima", "Segoe UI", sans-serif; direction: ltr; unicode-bidi: isolate; }
-    .letter-big { font-size: clamp(4rem, 14vw, 7rem); line-height: 1; }
+.letter-card { position: relative; }
+    .letter-number {
+      position: absolute; top: 0.45rem; right: 0.7rem;
+      font-size: 0.72rem; font-weight: 700; color: var(--muted);
+      opacity: 0.45; pointer-events: none; line-height: 1;
+    }
+    .letter-head { margin-top: 0.85rem; }
     .forms-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; margin-top: 0.8rem; }
     .form-cell { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 0.6rem 0.3rem; text-align: center; }
     .form-cell .ethiopic { font-size: 1.6rem; display: block; }
@@ -33,6 +39,8 @@
       .breadcrumb { font-size: 0.78rem; margin-bottom: 0.55rem; }
 
       .letter-card { padding: 0.85rem; }
+      .letter-number { top: 0.3rem; right: 0.55rem; font-size: 0.66rem; }
+      .letter-head { margin-top: 0.7rem; }
       .letter-big { font-size: clamp(2.6rem, 9.5vw, 4.2rem); }
       .letter-head { gap: 0.4rem; flex-wrap: wrap; }
       .badge { font-size: 0.7rem; padding: 0.08rem 0.5rem; }
@@ -144,6 +152,7 @@
     <section class="section" id="letterSection">
       <div class="container narrow">
         <div class="letter-card">
+          <span class="letter-number" id="letterNumber" aria-hidden="true">1</span>
           <div class="letter-head">
             <span class="badge badge-pending" id="reviewBadge">بانتظار مراجعة المختص</span>
             <span class="lesson-code" id="letterCounter">1 / 32</span>

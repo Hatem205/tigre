@@ -18,6 +18,7 @@
     base: document.getElementById('letterBase'),
     name: document.getElementById('letterName'),
     arabic: document.getElementById('letterArabic'),
+    number: document.getElementById('letterNumber'),
     latin: null,
     source: null,
     counter: document.getElementById('letterCounter'),
@@ -75,6 +76,7 @@
     idx = Math.max(0, Math.min(letters.length - 1, i));
     var L = letters[idx];
     if (els.base) els.base.textContent = L.base;
+    if (els.number) els.number.textContent = idx + 1;
     if (els.name) els.name.textContent = L.name;
     if (els.arabic) els.arabic.textContent = L.arabicApprox;
     if (els.counter) els.counter.textContent = (idx + 1) + ' / ' + letters.length;
